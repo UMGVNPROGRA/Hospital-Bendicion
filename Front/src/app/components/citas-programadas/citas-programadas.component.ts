@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
 import {CitasGestionComponent} from "../citas-gestion/citas-gestion.component";
 import {CitasService} from "../../services/citas.service";
 import {CitasInterfaces} from "../../interfaces/citas-interfaces";
@@ -13,7 +13,7 @@ import {initFlowbite} from "flowbite";
   templateUrl: './citas-programadas.component.html',
   styleUrl: './citas-programadas.component.scss'
 })
-export class CitasProgramadasComponent implements OnInit{
+export class CitasProgramadasComponent {
 
   constructor(private service: CitasService) {}
   cita: CitasInterfaces [] = []
@@ -29,7 +29,7 @@ export class CitasProgramadasComponent implements OnInit{
       next: value => {
         this.cita = value.data;
       },
-    error: error => console.error(error)})
+      error: error => console.error(error)})
   }
 
 }
