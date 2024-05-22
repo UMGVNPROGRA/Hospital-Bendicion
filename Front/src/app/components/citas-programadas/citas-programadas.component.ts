@@ -1,8 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
 import {CitasGestionComponent} from "../citas-gestion/citas-gestion.component";
-import {CitasService} from "../../services/citas.service";
-import {CitasInterfaces} from "../../interfaces/citas-interfaces";
-import {initFlowbite} from "flowbite";
 
 @Component({
   selector: 'app-citas-programadas',
@@ -13,23 +10,6 @@ import {initFlowbite} from "flowbite";
   templateUrl: './citas-programadas.component.html',
   styleUrl: './citas-programadas.component.scss'
 })
-export class CitasProgramadasComponent implements OnInit{
-
-  constructor(private service: CitasService) {}
-  cita: CitasInterfaces [] = []
-
-  ngOnInit() {
-    initFlowbite();
-    this.getCitas();
-    console.table(this.cita)
-  }
-
-  getCitas() {
-    this.service.getcitas().subscribe({
-      next: value => {
-        this.cita = value.data;
-      },
-    error: error => console.error(error)})
-  }
+export class CitasProgramadasComponent {
 
 }
