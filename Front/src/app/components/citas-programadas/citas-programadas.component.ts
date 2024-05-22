@@ -21,13 +21,13 @@ export class CitasProgramadasComponent {
   ngOnInit() {
     initFlowbite();
     this.getCitas();
-    console.table(this.cita)
   }
 
   getCitas() {
     this.service.getcitas().subscribe({
       next: value => {
         this.cita = value.data;
+        console.table(this.cita)
       },
       error: error => console.error(error)})
   }
