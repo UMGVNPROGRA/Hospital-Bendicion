@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {CitasGestionComponent} from "../citas-gestion/citas-gestion.component";
+import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-citas-programadas',
@@ -10,6 +11,8 @@ import {CitasGestionComponent} from "../citas-gestion/citas-gestion.component";
   templateUrl: './citas-programadas.component.html',
   styleUrl: './citas-programadas.component.scss'
 })
-export class CitasProgramadasComponent {
-
+export class CitasProgramadasComponent implements OnInit {
+ngOnInit(): void {
+    initFlowbite();
+}
 }
