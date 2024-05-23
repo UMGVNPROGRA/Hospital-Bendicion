@@ -3,11 +3,10 @@ import {UsuarioInterfaces} from "./usuario-interfaces";
 import {MedicoInterfaces} from "./medico-interfaces";
 
 export interface CitasInterfaces {
-
-  "id_cita": 2,
+  "id_cita": number,
   "paciente": PacienteInterfaces,
   "fecha_cita": string,
-  "descripcion": "descripcion cita",
+  "descripcion": string,
   "usuario": UsuarioInterfaces,
   "id_medico": MedicoInterfaces,
   "estado": string
