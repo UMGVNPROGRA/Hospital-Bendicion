@@ -8,6 +8,9 @@ import {CitasProgramadasComponent} from "./components/citas-programadas/citas-pr
 import { Component } from '@angular/core';
 import { HistorialComponent } from './components/historial/historial.component';
 import { MedicoComponent } from './components/medico/medico.component';
+import { MenuAdministradorComponent } from './components/menu-principal/menu-administrador/menu-administrador.component';
+import { MenuSecretariaComponent } from './components/menu-principal/menu-secretaria/menu-secretaria.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
 
 export const routes: Routes = [
     {
@@ -16,6 +19,7 @@ export const routes: Routes = [
     },
     {path:'login', component:LoginComponent},
     {path:'citas', component:CitasComponent},
+    {path:'usuarios', component:UsuarioComponent},
 
     {path:'recetas', component:RecetaComponent},
     {path:'citasprogramadas', component:CitasProgramadasComponent},
@@ -23,6 +27,8 @@ export const routes: Routes = [
     {path:'historial', component:HistorialComponent},
 
     {path:'medico',component:MedicoComponent},
+    {path:'administrador',component:MenuAdministradorComponent},
+    {path:'secretaria',component:MenuSecretariaComponent},
 
     {path: '', redirectTo: 'index',pathMatch: 'full'},
     {path: '**',redirectTo: 'index',pathMatch: 'full'},
