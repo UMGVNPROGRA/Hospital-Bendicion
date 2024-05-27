@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>List users</h1>
+
+  <div style="overflow-x: auto">
+    <table
+      class="table table-dark table-striped-columns"
+      style="overflow-y: auto"
+    >
+      <thead>
+        <tr>
+          <th scope="col">ID Usuario</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Password</th>
+          <th scope="col">Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of userList; let i = index">
+          <th scope="row">{{ user.idUsuario }}</th>
+          <td>{{ user.username }}</td>
+          <td>{{ user.passwordUsuario }}</td>
+          <td>{{ user.role.nombre }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
