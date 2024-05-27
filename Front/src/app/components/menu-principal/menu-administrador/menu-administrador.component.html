@@ -5,19 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
-<style>
-  .sidebar {
-    transition: transform 0.3s ease;
-  }
-  .sidebar-hidden {
-    transform: translateX(-100%);
-  }
-  @media (min-width: 768px) {
-    .sidebar-hidden {
-      transform: translateX(0);
-    }
-  }
-</style>
 </head>
 <body class="min-h-screen bg-gray-100 flex flex-col">
 
@@ -34,7 +21,9 @@
           </a>
         </li>
         <li>
-          <a href="#" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+          <a href="#" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800"
+          routerLink="usuarios" routerLinkActive="active" (click)="modUser()"
+          >
             <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i ></i></span>
             <span class="text-sm font-medium">Administracion</span>
           </a>
@@ -73,31 +62,15 @@
           </a>
         </li>
         <li>
-          <a href="#" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+          <a href="#" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800"
+          (click)="logout()" routerLink="/secretaria">
             <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="bx bx-log-out"></i></span>
-            <span class="text-sm font-medium">Cerrar Sesion</span>
+
+            <span class="text-sm font-medium" >Cerrar Sesion</span>
           </a>
         </li>
       </ul>
     </div>
-    <div class="flex-1 p-10">
-      <button id="menu-toggle" class="block md:hidden p-2 bg-indigo-500 text-white rounded-full focus:outline-none">
-        <i class="bx bx-menu"></i>
-        cerrar</button>
-      <div>
-        <!-- Contenido principal aquí -->
-      </div>
-    </div>
   </div>
-
-<script>
-  const menuToggle = document.getElementById('menu-toggle');
-  const sidebar = document.getElementById('sidebar');
-
-  menuToggle.addEventListener('click', () => {
-    sidebar.classList.toggle('sidebar-hidden');
-  });
-</script>
-
 </body>
 </html>
