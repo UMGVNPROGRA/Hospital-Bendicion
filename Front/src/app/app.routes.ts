@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import {CitasComponent} from "./components/citas/citas.component";
-
+import { FacturaComponent } from './components/factura/factura.component';
 import { RecetaComponent } from './components/receta/receta.component';
 
 import {CitasProgramadasComponent} from "./components/citas-programadas/citas-programadas.component";
@@ -29,6 +29,7 @@ export const routes: Routes = [
     {path:'medico',component:MedicoComponent},
     {path:'administrador',component:MenuAdministradorComponent},
     {path:'secretaria',component:MenuSecretariaComponent},
+    {path:'factura', component:FacturaComponent},
 
     {path: '', redirectTo: 'index',pathMatch: 'full'},
     {path: '**',redirectTo: 'index',pathMatch: 'full'},
