@@ -3,7 +3,7 @@ import { LoginComponent } from './components/login/login.component';
 import {CitasComponent} from "./components/citas/citas.component";
 import { FacturaComponent } from './components/factura/factura.component';
 import { RecetaComponent } from './components/receta/receta.component';
-
+import { PacienteComponent } from './components/paciente/paciente.component';
 import {CitasProgramadasComponent} from "./components/citas-programadas/citas-programadas.component";
 import { Component } from '@angular/core';
 import { HistorialComponent } from './components/historial/historial.component';
@@ -20,6 +20,7 @@ export const routes: Routes = [
     {path:'login', component:LoginComponent},
     {path:'citas', component:CitasComponent},
     {path:'usuarios', component:UsuarioComponent},
+    {path:'paciente', component:PacienteComponent},
 
     {path:'recetas', component:RecetaComponent},
     {path:'citasprogramadas', component:CitasProgramadasComponent},
