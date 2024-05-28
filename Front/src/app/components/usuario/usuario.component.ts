@@ -12,6 +12,7 @@ import { UsuarioService } from 'app/services/usuario.service';
 })
 export class UsuarioComponent implements OnInit {
 
+
   userList: UsuarioInterfaces[] = [];
 
   private _apiService = inject(UsuarioService);
@@ -23,8 +24,22 @@ export class UsuarioComponent implements OnInit {
       this.userList = data;
     });
 
-
   }
+
+  editUser(user: any) {
+    // Lógica para editar el usuario
+    console.log('Editar usuario:', user);
+  }
+
+  deleteUser(userId: number) {
+    // Lógica para eliminar el usuario
+    console.log('Eliminar usuario con ID:', userId);
+    this.userList = this.userList.filter(user => user.idUsuario !== userId);
+  }
+  openAddUserModal() {
+    throw new Error('Method not implemented.');
+    }
+
 
 
 }
