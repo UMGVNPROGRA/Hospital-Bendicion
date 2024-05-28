@@ -1,62 +1,87 @@
-<div class="flex-col">
-  <div class="grid grid-rows-1 grid-flow-col gap-4">
-    <div class="row-span-3 ...">
-      <div class="bg-gray-100 min-h-screen flex-col items-start justify-normal p-4 rounded lg:mt-24">
-        <!-- Menu de opciones -->
-          <button class="block w-full text-center mb-4 p-2 rounded hover:bg-gray-200 focus:outline-none focus:bg-gray-200" id="btnCrearPaciente">
-            Crear Paciente
-          </button>
-        
-          <button class="block w-full text-center mb-4 p-2 rounded hover:bg-gray-200 focus:outline-none focus:bg-gray-200" id="btnConsultarPaciente">
-            Consultar Paciente
-          </button>
-        
-          <button class="block w-full text-center mb-4 p-2 rounded hover:bg-gray-200 focus:outline-none focus:bg-gray-200" id="btnConsultarPacienteUser">
-            Consultar Usuarios
-          </button>        
-      </div>
+<div class="antialiased bg-gray-50 dark:bg-gray-900">
+    
+  <aside
+    class="fixed top-0 left-0 z-40 w-64 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+    aria-label="Sidenav"
+    id="drawer-navigation"
+  >
+    <div class="overflow-y-auto py-5 px-3 h-full bg-white dark:bg-gray-800">
+      <ul class="space-y-2">
+        <li>
+          <a
+            href="#"
+            class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+          >
+            <svg
+              aria-hidden="true"
+              class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+              <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+            </svg>
+            <span class="ml-3">Crear</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="#"
+            class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+          >
+            <svg
+              aria-hidden="true"
+              class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+              <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+            </svg>
+            <span class="ml-3">Editar</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="#"
+            class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+          >
+            <svg
+              aria-hidden="true"
+              class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+              <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+            </svg>
+            <span class="ml-3">Consulta</span>
+          </a>
+        </li>
+      </ul>
     </div>
-    <div class="col-span-2 ...">
-      <div class="bg-white min-h-screen flex-col items-start justify-center p-4 lg:mt-24">
-        <!-- Componente de Gestión de Pacientes -->
-          <div class="w-full p-8 rounded shadow-md lg:min-h-screen">
-            <h2 class="text-2xl font-bold mb-4">Paciente</h2>
-            <pre>
-          {{paciente}}
-        </pre>
-            <div class="overflow-x-auto">
-              <table class="min-w-full bg-white border border-gray-200">
-                <thead>
-                <tr>
-                  <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">ID Paciente</th>
-                  <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Nombre</th>
-                  <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Apellido</th>
-                  <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Fecha de nacimiento</th>
-                  <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Dirección</th>
-                  <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Telefono</th>
-                  <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">DPI</th>
-                  <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">NIT</th>
-                  <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Email</th>
-                  <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Genero</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700 whitespace-nowrap"></td>
-                  <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"></td>
-                  <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"></td>
-                  <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"></td>
-                  <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700">
-                    <button class="px-3 py-1 text-white bg-blue-500 rounded hover:bg-blue-700">Editar</button>
-                    <button class="px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700 ml-2">Eliminar</button>
-                  </td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-        
+  </aside>
+
+  <main class="p-4 md:ml-64 h-auto pt-20">
+  
+    <div class="grid grid-cols-2 h-[78vh] mb-4">
+      <div class="card col-span-2 h-1"><h2 class="text-2xl font-bold mb-4">Paciente</h2></div>
+      <div class="card">ID Cliente</div>
+      <div class="card">Nombre</div>
+      <div class="card">Apellido</div>
+      <div class="card">Fecha de Nacimiento</div>
+      <div class="card">Direccion</div>
+      <div class="card">telefono</div>
+      <div class="card">DPI</div>
+      <div class="card">NIT</div>
+      <div class="card">Email</div>
+      <div class="card">Genero</div>
+      <div class="card">Estado</div>
+      <div class="card">Usuario</div>
     </div>
-  </div>
+   
+  </main>
 </div>
