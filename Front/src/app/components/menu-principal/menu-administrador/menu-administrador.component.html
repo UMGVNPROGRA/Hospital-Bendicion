@@ -3,74 +3,88 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
+<title>Barra de Navegación Lateral</title>
 </head>
-<body class="min-h-screen bg-gray-100 flex flex-col">
+<body class="bg-gray-100">
 
-  <div class="flex flex-row w-full">
-    <div id="sidebar" class="sidebar flex flex-col w-56 bg-white rounded-r-3xl overflow-hidden shadow-md fixed md:relative md:transform-none sidebar-hidden md:block">
-      <div class="flex items-center justify-center h-20 shadow-md">
-        <h1 class="text-3xl uppercase text-indigo-500">Logo</h1>
-      </div>
-      <ul class="flex flex-col py-4">
-        <li>
-          <a href="#" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-            <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="bx bx-user"></i></span>
-            <span class="text-sm font-medium">Perfil Usuario</span>
+  <!-- Barra de navegación lateral -->
+  <div id="sidebar" class="flex h-screen bg-gray-200">
+    <!-- Barra lateral -->
+    <div class="w-64 bg-gray-800 p-6 text-white">
+      <h1 class="text-2xl font-bold">Menú</h1>
+      <ul class="mt-6">
+        <li class="py-2">
+          <a href="#" class="flex items-center text-gray-200 hover:text-white"
+          routerLink="administrador/user" routerLinkActive="active" (click)="modUser()">
+            <i class='bx bxs-user mr-2'></i>
+            Usuarios
           </a>
         </li>
-        <li>
-          <a href="#" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800"
-          routerLink="usuarios" routerLinkActive="active" (click)="modUser()"
-          >
-            <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i ></i></span>
-            <span class="text-sm font-medium">Administracion</span>
+        <li class="py-2">
+          <a href="#" class="flex items-center text-gray-200 hover:text-white">
+            <i class='bx bxs-user mr-2'></i>
+            Pacientes
           </a>
         </li>
-        <li>
-          <a href="#" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-            <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i ></i></span>
-            <span class="text-sm font-medium">Pacientes</span>
+        <li class="py-2">
+          <a href="#" class="flex items-center text-gray-200 hover:text-white">
+            <i class='bx bxs-calendar mr-2'></i>
+            Citas
           </a>
         </li>
-        <li>
-          <a href="" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800" routerLink="factura">
-            <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400">
-            <i></i>
-            </span>
-            <span class="text-sm font-medium">Facturas</span>
+        <li class="py-2">
+          <a href="#" class="flex items-center text-gray-200 hover:text-white">
+            <i class='bx bxs-file-medical mr-2'></i>
+            Consulta Médica
           </a>
         </li>
-        <li>
-          <a href="#" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-            <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i ></i></span>
-            <span class="text-sm font-medium" routerLink="factura">Citas</span>
+        <li class="py-2">
+          <a href="#" class="flex items-center text-gray-200 hover:text-white">
+            <i class='bx bxs-receipt mr-2'></i>
+            Facturas
           </a>
         </li>
-        <li>
-          <a href="#" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-            <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i></i></span>
-            <span class="text-sm font-medium">Medicos</span>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-            <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i></i></span>
-            <span class="text-sm font-medium">Historial Medico</span>
-            <span class="ml-auto mr-6 text-sm bg-red-100 rounded-full px-3 py-px text-red-500">5</span>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800"
-          (click)="logout()" routerLink="/secretaria">
-            <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="bx bx-log-out"></i></span>
-
-            <span class="text-sm font-medium" >Cerrar Sesion</span>
+        <li class="py-2">
+          <a href="#" class="flex items-center text-gray-200 hover:text-white"
+          routerLink="administrador/modhistorial" routerLinkActive="active" (click)="modHistorial()">
+            <i class='bx bx-history mr-2'></i>
+            Historial Médico
           </a>
         </li>
       </ul>
+      <!-- Botón para desplegar la barra lateral en dispositivos móviles -->
+      <div class="md:hidden mt-6">
+        <button onclick='toggleSidebar()' class="bg-gray-600 text-white py-2 px-4 rounded-lg focus:outline-none">
+          Desplegar
+        </button>
+      </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="flex flex-col flex-1">
+      <!-- Barra de navegación superior -->
+      <div class="bg-gray-800 p-4">
+        <button onclick='toggleSidebar()' class="text-white focus:outline-none">
+          <i class='bx bx-menu text-2xl'></i>
+        </button>
+      </div>
+
+      <!-- Contenido de la página con scroll si es necesario -->
+      <div class="p-8 max-h-screen overflow-y-auto">
+        <!-- Aquí se puede agregar el contenido dinámico -->
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </div>
+
+  <script>
+    // Función para alternar la visibilidad de la barra lateral
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('hidden');
+    }
+  </script>
 </body>
 </html>
