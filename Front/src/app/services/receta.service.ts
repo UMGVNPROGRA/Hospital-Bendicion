@@ -9,17 +9,17 @@ import { Observable } from 'rxjs';
 })
 export class RecetaService {
 
-  constructor(private httpClient: HttpClient) { }
+  private _http = inject(HttpClient);
 
   private url = environment.apiURL;
   
   getcitasById(id: number) : Observable<CitasI> {
-    return this.httpClient.get<CitasI>(`${this.url}/citas/${id}`)
+    return this._http.get<CitasI>(`${this.url}/citas/${id}`)
       .pipe(res => res)
   }
 
   getcitasMedicamentoByCod(cod: string, est: string): Observable<any> {
-    return this.httpClient.get<any>(`${this.url}/medicamento/${cod}/${est}`);
+    return this._http.get<any>(`${this.url}/medicamento/${cod}/${est}`);
   }
 
 
