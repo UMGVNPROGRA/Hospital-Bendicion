@@ -17,4 +17,11 @@ export class RecetaService {
     return this.httpClient.get<CitasI>(`${this.url}/citas/${id}`)
       .pipe(res => res)
   }
+
+  getcitasMedicamentoByCod(cod: string, est: string): Observable<any> {
+    return this.httpClient.get<any>(`${this.url}/medicamento/${cod}/${est}`);
+  }
+
+
+
 }

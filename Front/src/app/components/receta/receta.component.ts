@@ -32,19 +32,20 @@ tipoConsulta(){
 }
 
 cargaCitas(id:number) {
-  this.recetasSrv.getcitasById(8).subscribe({
-    next: response => {
-      console.log('Cita enviada exitosamente', response);
-      // Manejar la respuesta exitosa
-    },
-    error: error => {
-      console.error('Error al enviar la cita', error);
-      // Manejar el error
-    }
+  this.recetasSrv.getcitasById(8).subscribe((data) => {
+    //console.log(data);
+    this.citas = data;
+    console.log(this.citas);
   });
   };
 
-  
+  cargaMedi() {
+    this.recetasSrv.getcitasMedicamentoByCod("ASP","A").subscribe((data) => {
+      //console.log(data);
+      this.citas = data;
+      console.log(this.citas);
+    });
+    };
 }
 
 
