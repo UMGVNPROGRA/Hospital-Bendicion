@@ -13,6 +13,7 @@ import { MenuAdministradorComponent } from './components/menu-principal/menu-adm
 import { MenuSecretariaComponent } from './components/menu-principal/menu-secretaria/menu-secretaria.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import { ModulosadminComponent } from './components/menu-principal/modulos-admin/modulosadmin.component';
+import { MedicamentosComponent } from './components/medicamentos/medicamentos.component';
 
 export const routes: Routes = [
 
@@ -34,6 +35,7 @@ export const routes: Routes = [
     {path:'administrador',component:MenuAdministradorComponent},
     {path:'secretaria',component:MenuSecretariaComponent},
     {path:'factura', component:FacturaComponent},
+    {path:'medicamentos', component:MedicamentosComponent},
 
   {
     path: 'administrador', component:MenuAdministradorComponent ,
