@@ -41,7 +41,9 @@ export class LoginComponent implements OnInit {
       this.loginError = "";
       this._apiSerive.login(this.form.value as LoginRequest).subscribe({
         next: (userData) => {
+          let token: string = this._apiSerive.userRoleValue;
           console.log(userData);
+         this.redirectBasedOnRole(token);
         },
         error: (errorData) => {
           console.error(errorData);
@@ -49,15 +51,23 @@ export class LoginComponent implements OnInit {
         },
         complete: () => {
           console.info("Login completo");
-          this.router.navigateByUrl('/administrador');
           this.form.reset();
         }
-      })
-
-    }
-    else {
+      });
+    } else {
       this.form.markAllAsTouched();
       alert("Error al ingresar los datos.");
+    }
+  }
+
+  private redirectBasedOnRole(role: string) {
+    if (role === 'administrador') {
+      this.router.navigateByUrl('/administrador');
+    } else if (role === 'secretaria') {
+      this.router.navigateByUrl('/secretaria');
+    } else {
+      console.error('Role no reconocido');
+      this.loginError = 'Role no reconocido';
     }
   }
 

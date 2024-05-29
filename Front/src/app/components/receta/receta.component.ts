@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginService } from 'app/services/login.service';
 
 @Component({
   selector: 'app-receta',
@@ -8,5 +9,15 @@ import { Component } from '@angular/core';
   styleUrl: './receta.component.scss'
 })
 export class RecetaComponent {
+  constructor(private serviceLogin: LoginService) {
+
+  }
+
+tipoConsulta(){
+  if(this.serviceLogin.userRoleValue==='administrador'){
+    
+  }
+
+}
 
 }
