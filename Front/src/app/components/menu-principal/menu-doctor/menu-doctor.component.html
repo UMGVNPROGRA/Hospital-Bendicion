@@ -38,44 +38,29 @@
       <ul class="mt-6">
         <li class="py-2">
           <a href="#" class="flex items-center text-gray-200 hover:text-white"
-          routerLink="secretaria/paciente" routerLinkActive="active" (click)="modPaciente()">
-            <i class='bx bxs-user mr-2'></i>
-            Pacientes
-          </a>
-        </li>
-        <li class="py-2">
-          <a href="#" class="flex items-center text-gray-200 hover:text-white"
-          routerLink="secretaria/citas" routerLinkActive="active" (click)="modCitas()">
-            <i class='bx bxs-calendar mr-2'></i>
-            Citas
-          </a>
-        </li>
-        <li class="py-2">
-          <a href="#" class="flex items-center text-gray-200 hover:text-white"
-          routerLink="secretaria/citasprogramadas" routerLinkActive="active" (click)="modCitasProgra()">
+          routerLink="doctor/citasprogramadas" routerLinkActive="active" (click)="modCitasProgra()">
             <i class='bx bxs-calendar-check mr-2'></i>
             Citas Programadas
-          </a>
-        </li>
-        <li class="py-2">
-          <a href="#" class="flex items-center text-gray-200 hover:text-white"
-          routerLink="secretaria/factura" routerLinkActive="active" (click)="modFactura()">
-            <i class='bx bxs-receipt mr-2'></i>
-            Facturas
           </a>
         </li>
         <!-- Nuevos módulos -->
         <li class="py-2">
           <a href="#" class="flex items-center text-gray-200 hover:text-white"
-          routerLink="secretaria/medicamentos" routerLinkActive="active" (click)="modMedicamento()">
+          routerLink="doctor/medicamentos" routerLinkActive="active" (click)="modMedicamento()">
             <i class='bx bxs-capsule mr-2'></i>
             Medicamentos
           </a>
         </li>
-
         <li class="py-2">
           <a href="#" class="flex items-center text-gray-200 hover:text-white"
-          routerLink="secretaria/historial" routerLinkActive="active" (click)="modHistorial()">
+          routerLink="doctor/recetas" routerLinkActive="active" (click)="modRecetas()">
+            <i class='bx bxs-prescription mr-2'></i>
+            Receta Médica
+          </a>
+        </li>
+        <li class="py-2">
+          <a href="#" class="flex items-center text-gray-200 hover:text-white"
+          routerLink="doctor/historial" routerLinkActive="active" (click)="modHistorial()">
             <i class='bx bx-history mr-2'></i>
             Historial Médico
           </a>
