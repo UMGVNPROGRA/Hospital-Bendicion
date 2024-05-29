@@ -1,7 +1,19 @@
 <section class="text-gray-600 body-font overflow-hidden">
+    
     <div class="container px-5 py-24 mx-auto">
       <div class="lg:w-4/5 mx-auto flex flex-wrap">
         <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+                <div class="grid gap-6 mb-6 md:grid-cols-1">
+                    <div>
+                        <label for="medicamento" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ID de cita</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                            </div>
+                            <input  type="search" id="medicamento" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                            <button (click)="cargaCitas(8)" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+                        </div>
+                    </div>
+                </div>   
           <h2 class="text-sm title-font text-gray-500 tracking-widest">CITA</h2>
           <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">Paciente</h1>
           <div class="flex mb-4">
