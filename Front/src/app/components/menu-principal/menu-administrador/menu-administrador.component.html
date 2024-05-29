@@ -8,52 +8,112 @@
 <title>Barra de Navegación Lateral</title>
 </head>
 <body class="bg-gray-100">
+  <script>
+    // Función para alternar la visibilidad de la barra lateral
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('hidden');
+    }
 
+    // Función para contraer y desplegar el menú
+    function toggleMenu() {
+      const sidebarContent = document.getElementById('sidebar-content');
+      const toggleIcon = document.getElementById('toggle-icon');
+      sidebarContent.classList.toggle('w-64');
+      sidebarContent.classList.toggle('w-20');
+      toggleIcon.classList.toggle('bx-chevron-left');
+      toggleIcon.classList.toggle('bx-chevron-right');
+    }
+  </script>
   <!-- Barra de navegación lateral -->
   <div id="sidebar" class="flex h-screen bg-gray-200">
     <!-- Barra lateral -->
-    <div class="w-64 bg-gray-800 p-6 text-white">
-      <h1 class="text-2xl font-bold">Menú</h1>
+    <div id="sidebar-content" class="w-64 bg-gray-800 p-6 text-white transition-all duration-300">
+      <div class="flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Menú</h1>
+        <button onclick="toggleMenu()" class="text-white focus:outline-none">
+          <i class='bx bx-chevron-left' id="toggle-icon"></i>
+        </button>
+      </div>
       <ul class="mt-6">
         <li class="py-2">
           <a href="#" class="flex items-center text-gray-200 hover:text-white"
-          routerLink="administrador/user" routerLinkActive="active" (click)="modUser()">
+          routerLink="administrador/usuarios" routerLinkActive="active" (click)="modUser()">
             <i class='bx bxs-user mr-2'></i>
             Usuarios
           </a>
         </li>
         <li class="py-2">
-          <a href="#" class="flex items-center text-gray-200 hover:text-white">
+          <a href="#" class="flex items-center text-gray-200 hover:text-white"
+          routerLink="administrador/paciente" routerLinkActive="active" (click)="modPaciente()">
             <i class='bx bxs-user mr-2'></i>
             Pacientes
           </a>
         </li>
         <li class="py-2">
-          <a href="#" class="flex items-center text-gray-200 hover:text-white">
+          <a href="#" class="flex items-center text-gray-200 hover:text-white"
+          routerLink="administrador/citas" routerLinkActive="active" (click)="modCitas()">
             <i class='bx bxs-calendar mr-2'></i>
             Citas
           </a>
         </li>
         <li class="py-2">
-          <a href="#" class="flex items-center text-gray-200 hover:text-white">
-            <i class='bx bxs-file-medical mr-2'></i>
-            Consulta Médica
+          <a href="#" class="flex items-center text-gray-200 hover:text-white"
+          routerLink="administrador/citasprogramadas" routerLinkActive="active" (click)="modCitasProgra()">
+            <i class='bx bxs-calendar-check mr-2'></i>
+            Citas Programadas
           </a>
         </li>
+
         <li class="py-2">
-          <a href="#" class="flex items-center text-gray-200 hover:text-white">
+          <a href="#" class="flex items-center text-gray-200 hover:text-white"
+          routerLink="administrador/factura" routerLinkActive="active" (click)="modFactura()">
             <i class='bx bxs-receipt mr-2'></i>
             Facturas
           </a>
         </li>
+        <!-- Nuevos módulos -->
         <li class="py-2">
           <a href="#" class="flex items-center text-gray-200 hover:text-white"
-          routerLink="administrador/modhistorial" routerLinkActive="active" (click)="modHistorial()">
+          routerLink="administrador/medicamentos" routerLinkActive="active" (click)="modMedicamento()">
+            <i class='bx bxs-capsule mr-2'></i>
+            Medicamentos
+          </a>
+        </li>
+        <li class="py-2">
+          <a href="#" class="flex items-center text-gray-200 hover:text-white"
+          routerLink="administrador/recetas" routerLinkActive="active" (click)="modRecetas()">
+            <i class='bx bxs-prescription mr-2'></i>
+            Receta Médica
+          </a>
+        </li>
+        <li class="py-2">
+          <a href="#" class="flex items-center text-gray-200 hover:text-white"
+          routerLink="administrador/medico" routerLinkActive="active" (click)="modDoctores()">
+            <i class='bx bxs-user-voice mr-2'></i>
+            Doctores
+          </a>
+        </li>
+        <li class="py-2">
+          <a href="#" class="flex items-center text-gray-200 hover:text-white"
+          routerLink="administrador/historial" routerLinkActive="active" (click)="modHistorial()">
             <i class='bx bx-history mr-2'></i>
             Historial Médico
           </a>
         </li>
       </ul>
+      <!-- Opción de cerrar sesión -->
+      <div class="mt-auto">
+        <ul>
+          <li class="py-2">
+            <a href="#" class="flex items-center text-gray-200 hover:text-white"
+            (click)="logout()">
+              <i class='bx bx-log-out mr-2'></i>
+              Cerrar Sesión
+            </a>
+          </li>
+        </ul>
+      </div>
       <!-- Botón para desplegar la barra lateral en dispositivos móviles -->
       <div class="md:hidden mt-6">
         <button onclick='toggleSidebar()' class="bg-gray-600 text-white py-2 px-4 rounded-lg focus:outline-none">
@@ -79,12 +139,5 @@
     </div>
   </div>
 
-  <script>
-    // Función para alternar la visibilidad de la barra lateral
-    function toggleSidebar() {
-      const sidebar = document.getElementById('sidebar');
-      sidebar.classList.toggle('hidden');
-    }
-  </script>
 </body>
 </html>

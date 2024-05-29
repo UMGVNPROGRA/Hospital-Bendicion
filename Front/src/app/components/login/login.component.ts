@@ -65,6 +65,8 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl('/administrador');
     } else if (role === 'secretaria') {
       this.router.navigateByUrl('/secretaria');
+    }else if (role === 'doctor') {
+      this.router.navigateByUrl('/doctor');
     } else {
       console.error('Role no reconocido');
       this.loginError = 'Role no reconocido';
