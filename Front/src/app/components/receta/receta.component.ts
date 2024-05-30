@@ -1,19 +1,19 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { LoginService } from 'app/services/login.service';
-import { ApiService } from 'app/servicios/api.service';
 import { CitasI } from '../modelos/citas.interface';
 import { RecetaService } from 'app/services/receta.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-receta',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './receta.component.html',
   styleUrl: './receta.component.scss'
 })
 export class RecetaComponent implements OnInit {
   citas: CitasI | undefined;
-  citaBuscada: any;
+  idMed: number = 0;
   private recetasSrv = inject(RecetaService);
 
   constructor(private serviceLogin: LoginService) {
