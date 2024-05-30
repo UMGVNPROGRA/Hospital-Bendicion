@@ -14,6 +14,7 @@ import { MenuSecretariaComponent } from './components/menu-principal/menu-secret
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import { MedicamentosComponent } from './components/medicamentos/medicamentos.component';
 import { MenuDoctorComponent } from './components/menu-principal/menu-doctor/menu-doctor.component';
+import { EspecialidadComponent } from './components/especialidad/especialidad.component';
 
 export const routes: Routes = [
 
@@ -34,6 +35,7 @@ export const routes: Routes = [
   { path: 'medico', component: MedicoComponent },
   { path: 'factura', component: FacturaComponent },
   { path: 'medicamentos', component: MedicamentosComponent },
+  { path: 'especialidad', component: EspecialidadComponent},
 
   {
     path: 'administrador', component: MenuAdministradorComponent,
@@ -48,6 +50,7 @@ export const routes: Routes = [
       { path: 'medico', component: MedicoComponent },
       { path: 'factura', component: FacturaComponent },
       { path: 'medicamentos', component: MedicamentosComponent },
+      { path: 'especialidad', component: EspecialidadComponent},
     ]
   },
   { path: 'secretaria', component: MenuSecretariaComponent,
