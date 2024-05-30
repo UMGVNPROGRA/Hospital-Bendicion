@@ -16,7 +16,16 @@ export class PacienteComponent{
   paciente: PacienteInterfaces [] = []
 
   ngOnInit(): void {
-    initFlowbite();     
+    initFlowbite();
+    this.getPaciente();   
   }
 
+  getPaciente() {
+    this.service.getpaciente().subscribe({
+      next: value => {
+        this.paciente = value.data;
+        console.table(this.paciente)
+      },
+      error: error => console.error(error)})
+  }
 }

@@ -14,6 +14,7 @@ import { MenuSecretariaComponent } from './components/menu-principal/menu-secret
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import { MedicamentosComponent } from './components/medicamentos/medicamentos.component';
 import { MenuDoctorComponent } from './components/menu-principal/menu-doctor/menu-doctor.component';
+import { PacienteActualizarComponent } from './components/paciente-actualizar/paciente-actualizar.component';
 
 export const routes: Routes = [
 
@@ -24,7 +25,9 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'citas', component: CitasComponent },
   { path: 'usuarios', component: UsuarioComponent },
+
   { path: 'paciente', component: PacienteComponent },
+  { path: 'pacienteactualizar', component: PacienteActualizarComponent },
 
   { path: 'recetas', component: RecetaComponent },
   { path: 'citasprogramadas', component: CitasProgramadasComponent },

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CitasI } from 'app/components/modelos/citas.interface';
 import { Observable } from 'rxjs/internal/Observable';
+import { PacienteInterfaces } from 'app/interfaces/paciente-interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,12 @@ export class ApiService {
     let direccion = this.url + seccion;
     //console.log(direccion);
     return this.http.get<CitasI[]>(direccion);
+  }
+
+  ListadoPaciente():Observable<PacienteInterfaces[]> {
+    let seccion = "paciente";
+    let direccion = this.url + seccion;
+    return this.http.get<PacienteInterfaces[]>(direccion);
   }
 
 
