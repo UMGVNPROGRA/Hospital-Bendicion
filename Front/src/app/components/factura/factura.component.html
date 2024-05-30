@@ -23,7 +23,9 @@
           <div class="flex mb-4">
             <span class="flex-grow text-indigo-500 border-b-2 border-indigo-500 py-2 text-lg text-center">{{descripcion}}</span>
           </div>
-          <p class="leading-relaxed mb-4 text-center">Chequeo general</p>
+          <span class="text-gray-500">Ingrese Nit    </span>
+          <input id="datos" type="text" required class="ml-auto text-gray-900 border rounded-lg p-2 text-center" [disabled]="isDisabled"
+          [(ngModel)]="nit" >
           <div class="flex border-t border-gray-200 py-2">
             <span class="text-gray-500">Fecha</span>
             <span class="ml-auto text-gray-900">{{fecha}}</span>
@@ -36,11 +38,33 @@
             <span class="text-gray-500">correo electronico</span>
             <span class="ml-auto text-gray-900">{{email}}</span>
           </div>
+          <div class="flex border-t border-b mb-6 border-gray-200 py-2">
+            <span class="text-gray-500">Total</span>
+            <input (change)="calculoSubTotal()" [disabled]="isDisabled" required
+            type="number" 
+            class="ml-auto text-gray-900 border rounded-lg p-2" 
+            [(ngModel)]="total" 
+            name="total"
+            placeholder="0.00"
+          />
+          </div>
+          <div class="flex border-t border-b mb-6 border-gray-200 py-2">
+            <span class="text-gray-500">SubTotal</span>
+            <input 
+            type="number" [disabled]="true"
+            class="ml-auto text-gray-900 border rounded-lg p-2" 
+            [(ngModel)]="subtotal" 
+            name="subtotal"
+            placeholder="0.00"
+          />
+          </div>
           <div class="flex justify-between">
-            <button class="flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
+            <button class="flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
+            (click)="CrearFactura()">
               Crear Factura
             </button>
-            <button class="flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
+            <button class="flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
+            (click)="limpiarDatos()">
               Cancelar Factura
             </button>
           </div>
