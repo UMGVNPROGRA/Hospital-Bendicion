@@ -4,20 +4,24 @@ import { CitasI } from 'app/components/modelos/citas.interface';
 import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
-
   url: string = 'http://localhost:8486/';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  ListadoCitas():Observable<CitasI[]> {
-    let seccion = "citas";
+  ListadoCitas(): Observable<CitasI[]> {
+    let seccion = 'citas';
     let direccion = this.url + seccion;
     //console.log(direccion);
     return this.http.get<CitasI[]>(direccion);
   }
 
-
+  CrearFactura(token: any) {
+    let seccion = 'facturas';
+    let direccion = this.url + seccion;
+    //console.log(direccion);
+    return this.http.post<any>(direccion, token);
+  }
 }
