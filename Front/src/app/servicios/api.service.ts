@@ -25,6 +25,7 @@ export class ApiService {
     //console.log(direccion);
     return this.http.post<any>(direccion, token);
   }
+
   ListadoPaciente():Observable<PacienteInterfaces[]> {
     let seccion = "paciente";
     let direccion = this.url + seccion;
