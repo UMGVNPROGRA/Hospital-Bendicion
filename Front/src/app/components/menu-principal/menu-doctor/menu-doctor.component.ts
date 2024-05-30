@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
-import { UsuarioComponent } from 'app/components/usuario/usuario.component';
+import { UsuarioComponent } from 'app/components/nav-usuarios/viewusuarios/usuario.component';
 import { LoginService } from 'app/services/login.service';
 
 @Component({
