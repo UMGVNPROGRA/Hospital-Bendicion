@@ -18,6 +18,11 @@ export class FacturaComponent implements OnInit {
   filaSeleccionado: any;
   nombre_paciente:any;
   nombre_medico:any;
+  direccion:any;
+  fecha:any;
+  descripcion:any;
+  email:any;
+
 
   constructor(
     private activerouter: ActivatedRoute,
@@ -29,12 +34,20 @@ export class FacturaComponent implements OnInit {
     this.cargaCitas();
     this.nombre_paciente="";
     this.nombre_medico="";
+    this.direccion="";
+    this.fecha="";
+    this.descripcion="";
+    this.email="";
   }
 
   mostrarDatos() {
    
     this.nombre_paciente=this.filaSeleccionado.paciente.nombre;
     this.nombre_medico=this.filaSeleccionado.id_medico.nombre_medico;
+    this.direccion=this.filaSeleccionado.paciente.direccion;
+    this.fecha=this.filaSeleccionado.fecha_cita;
+    this.descripcion=this.filaSeleccionado.descripcion;
+    this.email=this.filaSeleccionado.paciente.email;
   }
 
   cargaCitas() {
