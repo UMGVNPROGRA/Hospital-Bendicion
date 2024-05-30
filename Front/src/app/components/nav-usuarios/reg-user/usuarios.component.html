@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
+    <title>Registrar usuario</title>
+</head>
+<body class="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
+    <div class="container mx-auto p-4">
+        <ul class="flex border-b">
+            <li class="mr-1">
+                <a class="bg-white inline-block py-2 px-4 text-gray-400 font-semibold" href="#" routerLink="administrador/usuarios" routerLinkActive="active" (click)="viewUser()">Eliminar</a>
+            </li>
+            <li class="mr-1">
+                <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold" href="#" routerLink="administrador/reguser" routerLinkActive="active" (click)="regUser()">Registrar</a>
+            </li>
+            <li class="mr-1">
+                <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold" href="#">Modificar</a>
+            </li>
+        </ul>
+        <div class="overflow-x-auto bg-white shadow-lg rounded-lg">
+            <div class="contain py-16">
+                <div class="max-w-lg mx-auto shadow px-6 py-7 rounded overflow-hidden">
+                    <h2 class="text-2xl uppercase font-medium mb-1">Registro de usuario</h2>
+                    <p class="text-gray-600 mb-6 text-sm">¡Por favor, ingrese los datos correctamente!</p>
+                    <form autocomplete="off" [formGroup]="form" (ngSubmit)="registroUser()">
+                        <p class="text-red-500"></p>
+                        <div class="space-y-2">
+                            <div>
+                                <label for="username" class="text-gray-600 mb-2 block">Nombre de Usuario</label>
+                                <input type="text" id="username" class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-teal-500 placeholder-gray-400" placeholder="Username" formControlName="username" />
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                         <div>
+                                <label for="username" class="text-gray-600 mb-2 block">id rol</label>
+                                <input type="number" id="username" class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-teal-500 placeholder-gray-400" placeholder="Username" formControlName="rolId" />
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                          <div>
+                                 <label for="username" class="text-gray-600 mb-2 block">Nombre rol</label>
+                                 <input type="text" id="username" class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-teal-500 placeholder-gray-400" placeholder="Username" formControlName="rolName" />
+                             </div>
+                         </div>
+
+                        <div class="space-y-2">
+                            <div>
+                                <label for="password" class="text-gray-600 mb-2 block">Contraseña</label>
+                                <div class="relative">
+                                    <input type="text" id="password" class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-teal-500 placeholder-gray-400" placeholder="***********" formControlName="password" />
+                                    <div class="cursor-pointer absolute inset-y-0 right-0 flex items-center px-8 text-gray-600 border-l border-gray-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <button type="submit" class="block w-full py-2 text-center text-white bg-teal-500 border border-teal-500 rounded hover:bg-transparent hover:text-teal-500 transition uppercase font-roboto font-medium">Registrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -11,11 +11,11 @@ import { HistorialComponent } from './components/historial/historial.component';
 import { MedicoComponent } from './components/medico/medico.component';
 import { MenuAdministradorComponent } from './components/menu-principal/menu-administrador/menu-administrador.component';
 import { MenuSecretariaComponent } from './components/menu-principal/menu-secretaria/menu-secretaria.component';
-import { UsuarioComponent } from './components/usuario/usuario.component';
+import { UsuarioComponent } from './components/nav-usuarios/viewusuarios/usuario.component';
 import { MedicamentosComponent } from './components/medicamentos/medicamentos.component';
 import { MenuDoctorComponent } from './components/menu-principal/menu-doctor/menu-doctor.component';
 import { EspecialidadComponent } from './components/especialidad/especialidad.component';
-
+import { UsuariosComponent } from './components/nav-usuarios/reg-user/reg-user.component';
 export const routes: Routes = [
 
   {
@@ -41,7 +41,8 @@ export const routes: Routes = [
     path: 'administrador', component: MenuAdministradorComponent,
     children: [
 
-      { path: 'usuarios', component: UsuarioComponent },
+      {path: 'usuarios', component: UsuarioComponent  },
+      {path: 'reguser', component: UsuariosComponent},
       { path: 'historial', component: HistorialComponent },
       { path: 'citas', component: CitasComponent },
       { path: 'paciente', component: PacienteComponent },
@@ -53,8 +54,9 @@ export const routes: Routes = [
       { path: 'especialidad', component: EspecialidadComponent},
     ]
   },
-  { path: 'secretaria', component: MenuSecretariaComponent,
-    children:[
+  {
+    path: 'secretaria', component: MenuSecretariaComponent,
+    children: [
       { path: 'historial', component: HistorialComponent },
       { path: 'citas', component: CitasComponent },
       { path: 'paciente', component: PacienteComponent },
@@ -63,7 +65,7 @@ export const routes: Routes = [
       { path: 'medicamentos', component: MedicamentosComponent },
 
     ]
-   },
+  },
   {
     path: 'doctor', component: MenuDoctorComponent,
     children: [
