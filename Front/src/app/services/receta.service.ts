@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { CitasI } from 'app/components/modelos/citas.interface';
+import { CitasInterfaces } from 'app/interfaces/citas-interfaces';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 
@@ -13,8 +14,8 @@ export class RecetaService {
 
   private url = environment.apiURL;
   
-  getcitasById(id: number) : Observable<CitasI> {
-    return this._http.get<CitasI>(`${this.url}/citas/${id}`)
+  getcitasById(id: number) : Observable<CitasInterfaces> {
+    return this._http.get<CitasInterfaces>(`${this.url}/citas/${id}`)
       .pipe(res => res)
   }
 
