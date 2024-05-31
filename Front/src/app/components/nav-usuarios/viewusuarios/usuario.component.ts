@@ -38,6 +38,7 @@ export class UsuarioComponent implements OnInit {
     this._apiService.deleteUser(idUser).subscribe({
       next: () => {
         console.log("Usuario eliminado con ID" + idUser);
+        alert("Usuario elimindo con exito")
         //esto es para que actualice la lista sin necesidad de recargar la pagina
         this.userList = this.userList.filter(user => user.idUsuario !== idUser);
 
@@ -45,6 +46,7 @@ export class UsuarioComponent implements OnInit {
       },
       error: (error) => {
         console.error("Error al eliminar el Usuario ", error);
+        alert("Error al eliminar usuario")
       }
     })
 
@@ -61,6 +63,9 @@ export class UsuarioComponent implements OnInit {
   viewUser() {
     this.router.navigate(['/administrador/usuarios']);
 
+  }
+  updateUser() {
+    this.router.navigate(['/administrador/updateuser']);
   }
 
 
