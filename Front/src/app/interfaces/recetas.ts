@@ -8,3 +8,11 @@ export interface Recetas {
     "fecha": Date 
     "medicamento": Medicamentos
 }
+
+export interface RecetasConsulta {
+    "id_receta": number
+    "id_cita":  number
+    "fecha": Date 
+    "nombre": String
+    "nombre_medico": String
+}

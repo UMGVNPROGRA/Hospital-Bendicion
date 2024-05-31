@@ -24,6 +24,10 @@ export class RecetaService {
     return this._http.get<any>(`${this.url}/medicamento/${cod}/${est}`).pipe(res=>res);
   }
 
+  getRecetaByMed(id_receta: number, id_medico: number): Observable<any> {
+    return this._http.get<any>(`${this.url}/recetas/${id_receta}/${id_medico}`).pipe(res=>res);
+  }
+
   saveReceta(receta: Recetas) : Observable<any> {
     return this._http.post(`${this.url}/recetas`,receta)
       .pipe(res=>res)
