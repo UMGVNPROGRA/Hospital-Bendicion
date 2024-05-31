@@ -1,5 +1,5 @@
 import { Component,inject } from '@angular/core';
-import {FormBuilder, FormControl, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import { NewPacienteInterface } from 'app/interfaces/new-paciente-interface';
 import { PacienteService } from 'app/services/paciente.service';
 
@@ -7,6 +7,7 @@ import { PacienteService } from 'app/services/paciente.service';
   selector: 'app-paciente',
   standalone: true,
   imports: [
+    FormsModule,
     ReactiveFormsModule
   ],
   templateUrl: './paciente.component.html',
@@ -17,13 +18,11 @@ export class PacienteComponent{
   private _pacienteService = inject(PacienteService);
   pacienteForm =this._formBuilder.group(
     {
-      nombre: new FormControl('', Validators.required),
-      apellido: new FormControl('', Validators.required),
+      nit: new FormControl('', Validators.required),
+      dpi: new FormControl('', Validators.required),
       fecha_nacimiento: new FormControl('', Validators.required),
       direccion: new FormControl('', Validators.required),
       telefono: new FormControl('', Validators.required),
-      dpi: new FormControl('', Validators.required),
-      nit: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
       genero: new FormControl('', Validators.required),
       estado: new FormControl('A'),
@@ -36,13 +35,11 @@ export class PacienteComponent{
     if (this.pacienteForm.valid) {
       let paciente: NewPacienteInterface;
       paciente = {
-        nombre: this.pacienteForm.value.nombre!,
-        apellido: this.pacienteForm.value.apellido!,
+        nit: this.pacienteForm.value.nit!,
+        dpi: this.pacienteForm.value.dpi!,
         fecha_nacimiento: this.pacienteForm.value.fecha_nacimiento!,
         direccion: this.pacienteForm.value.direccion!,
         telefono: this.pacienteForm.value.telefono!,
-        dpi: this.pacienteForm.value.dpi!,
-        nit: this.pacienteForm.value.nit!,
         email: this.pacienteForm.value.email!,
         genero: this.pacienteForm.value.genero!,
         estado: this.pacienteForm.value.estado!,
