@@ -56,13 +56,16 @@ export class UsuariosComponent implements OnInit {
       this.roles = roles;
     });
   }
-  selectRole(role: Rol) {
-    this.form.patchValue({
-      rolId: 1,
-      rolName: "administrador"
-    });
+  selectRole(event: Event) {
+    const selectedRoleId = (event.target as HTMLSelectElement).value;
+    const selectedRole = this.roles.find(role => role.idRole === +selectedRoleId);
+    if (selectedRole) {
+      this.form.patchValue({
+        rolId: selectedRole.idRole,
+        rolName: selectedRole.nombre
+      });
+    }
   }
-
 
   registroUser() {
     if (this.form.valid) {
