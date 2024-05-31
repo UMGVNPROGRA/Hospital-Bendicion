@@ -22,6 +22,8 @@ export class RecetaComponent implements OnInit {
   descripcion: string = "";
 
   arrayMed: MedicamentosReceta[] = []
+  arrayIdMed: number [] = []
+  arrayDes: String [] = []
   recetaForm!: FormGroup;
 
   agregarMed() {
@@ -45,13 +47,20 @@ export class RecetaComponent implements OnInit {
   ngOnInit() {
     //this.cargaCitas(1);
     this.recetaForm = this.fb.group({
-      idCit: ['',Validators.required],
+      id_cita: ['',Validators.required],
+      id_medicamento: ['', Validators.required],
+      descripcion: ['', Validators.required],
+    });
 
-      detalle: ['', Validators.required],
-    });
     this.recetaForm.patchValue({
-      detalle: this.arrayMed
+      id_medicamento: this.arrayIdMed
     });
+
+    this.recetaForm.patchValue({
+      descripcion: this.arrayDes
+    });
+
+   
   }
 
   agregarDetalle(id: number, nom: String, des: string) {
@@ -69,6 +78,10 @@ export class RecetaComponent implements OnInit {
 
       console.log(id);
       this.citas = data;
+      this.recetaForm.patchValue({
+        id_cita: data.id_cita
+      });
+      console.log(this.recetaForm.value);
       console.log(this.citas);
     });
   };
@@ -82,8 +95,15 @@ export class RecetaComponent implements OnInit {
   };
 
   finalizar(){
-   let pr = this.recetaForm.get('idCit')?.setValue(this.citas?.id_cita)
-    console.log(this.recetaForm.value)
+  this.arrayMed.forEach(med => {
+    this.arrayIdMed.push(med.id_medicamento);
+  })
+
+  this.arrayMed.forEach(med => {
+    this.arrayDes.push(med.descripcionRecta);
+  })
+
+   console.log(this.recetaForm.value)
     
     this.recetasSrv.saveReceta(this.recetaForm.value).subscribe({
       next: response => {

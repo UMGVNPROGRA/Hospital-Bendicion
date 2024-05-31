@@ -17,6 +17,7 @@ import { MenuDoctorComponent } from './components/menu-principal/menu-doctor/men
 import { EspecialidadComponent } from './components/especialidad/especialidad.component';
 import { UsuariosComponent } from './components/nav-usuarios/reg-user/reg-user.component';
 import { PacienteActualizarComponent } from './components/paciente-actualizar/paciente-actualizar.component';
+import { RecetaConsultaComponent } from './components/receta-consulta/receta-consulta.component';
 
 export const routes: Routes = [
 
@@ -56,6 +57,7 @@ export const routes: Routes = [
       { path: 'factura', component: FacturaComponent },
       { path: 'medicamentos', component: MedicamentosComponent },
       { path: 'especialidad', component: EspecialidadComponent},
+      {path: 'consultaReceta', component: RecetaConsultaComponent}
     ]
   },
   {
