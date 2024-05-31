@@ -18,6 +18,7 @@ import { EspecialidadComponent } from './components/especialidad/especialidad.co
 import { UsuariosComponent } from './components/nav-usuarios/reg-user/reg-user.component';
 import { PacienteActualizarComponent } from './components/paciente-actualizar/paciente-actualizar.component';
 import { RecetaConsultaComponent } from './components/receta-consulta/receta-consulta.component';
+import { ModUserComponent } from './components/nav-usuarios/mod-user/mod-user.component';
 
 export const routes: Routes = [
   {
@@ -45,8 +46,10 @@ export const routes: Routes = [
     path: 'administrador',
     component: MenuAdministradorComponent,
     children: [
-      { path: 'usuarios', component: UsuarioComponent },
-      { path: 'reguser', component: UsuariosComponent },
+
+      {path: 'updateuser', component: ModUserComponent},
+      {path: 'usuarios', component: UsuarioComponent  },
+      {path: 'reguser', component: UsuariosComponent},
       { path: 'historial', component: HistorialComponent },
       { path: 'citas', component: CitasComponent },
       { path: 'paciente', component: PacienteComponent },

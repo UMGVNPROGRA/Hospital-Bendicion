@@ -19,25 +19,26 @@ export class UsuarioService {
     return this._http.get<UsuarioInterfaces[]>(environment.apiURL + "/usuarios/consulta");
   }
 
-  updateUser(userRequest: UserRequest): Observable<any> {
-    return this._http.put(environment.apiURL + "user", userRequest).pipe(
-      catchError(this.handleError)
-    )
-  }
-  deleteUser(idUser: number ): Observable<any>{
-    return this._http.delete(environment.apiURL + "/usuarios/delete/"+idUser);
+// usuario.service.ts
+updateUser(idRole: number, userRequest: UserRequest): Observable<any> {
+  const url = `${environment.apiURL}/usuarios/update/${idRole}`;
+  return this._http.put(url, userRequest).pipe(
+    catchError(this.handleError)
+  );
+}
+
+  deleteUser(idUser: number): Observable<any> {
+    return this._http.delete(environment.apiURL + "/usuarios/delete/" + idUser);
 
   }
-  postUser(userRequest : UserRequest) : Observable<any> {
-    return this._http.post(`${environment.apiURL}/login/registrar`, userRequest);
+  postUser(userRequest: UserRequest): Observable<any> {
+    return this._http.post(`${environment.apiURL}/usuarios/registrar`, userRequest);
   }
 
   //obtener roles
   getRoles(): Observable<Rol[]> {
     return this._http.get<Rol[]>(environment.apiURL + "/rol/consulta");
   }
-
-
 
 
   private handleError(error: HttpErrorResponse) {

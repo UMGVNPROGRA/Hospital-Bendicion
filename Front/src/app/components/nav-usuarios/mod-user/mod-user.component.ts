@@ -4,22 +4,29 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router, RouterModule } from '@angular/router';
 import { Rol } from 'app/interfaces/rol';
 import { UsuarioInterfaces } from 'app/interfaces/usuario-interfaces';
-import { LoginService } from 'app/services/login.service';
 import { UsuarioService } from 'app/services/usuario.service';
 
 @Component({
-  selector: 'app-usuarios',
+  selector: 'app-mod-user',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, RouterModule],
-  templateUrl: './usuarios.component.html',
-  styleUrl: './usuarios.component.scss'
+  templateUrl: './mod-user.component.html',
+  styleUrl: './mod-user.component.scss'
 })
-export class UsuariosComponent implements OnInit {
-  constructor(private router: Router, private service: LoginService) { }
+export class ModUserComponent implements OnInit {
+
+  constructor(private router: Router) { }
+
+  ngOnInit(): void {
+    this.loadRoles();
+    this.loadUser();
+  }
+
 
   userList: UsuarioInterfaces[] = [];
   roles: Rol[] = [];
 
+  private idUsername: number = 97;
   private _apiService = inject(UsuarioService);
   private fb = inject(FormBuilder);
 
@@ -42,30 +49,17 @@ export class UsuariosComponent implements OnInit {
   get password() {
     return this.form.controls['password'];
   }
+  selectIdUser(event: Event) {
+    const selectedIdUser = (event.target as HTMLSelectElement).value;
+    const selectedId = this.userList.find(user => user.idUsuario === +selectedIdUser);
+    if (selectedId) {
 
-
-  ngOnInit(): void {
-    this.loadRoles();
-  }
-
-  loadRoles() {
-    this._apiService.getRoles().subscribe((roles: Rol[]) => {
-      console.log(roles);
-      this.roles = roles;
-    });
-  }
-  selectRole(event: Event) {
-    const selectedRoleId = (event.target as HTMLSelectElement).value;
-    const selectedRole = this.roles.find(role => role.idRole === +selectedRoleId);
-    if (selectedRole) {
-      this.form.patchValue({
-        rolId: selectedRole.idRole,
-        rolName: selectedRole.nombre
-      });
+      this.idUsername = selectedId.idUsuario;
+      console.log("Id obtenido de usuario"+ this.idUsername)
     }
   }
 
-  registroUser() {
+  updateUser() {
     if (this.form.valid) {
       const userRequest = {
         username: this.form.value.username,
@@ -78,14 +72,15 @@ export class UsuariosComponent implements OnInit {
 
       console.log('Datos enviados:', userRequest);
 
-      this._apiService.postUser(userRequest).subscribe({
+      this._apiService.updateUser(this.idUsername, userRequest).subscribe({
         next: () => {
           console.log("Registro exitoso");
-          alert("Usuario registrado con exito")
+          alert("Modificado con exito")
+
         },
         error: (errorData) => {
           console.error('Error en la solicitud:', errorData);
-          alert("Error al registrar el usuario")
+          alert("Error al modificar el usuario")
         },
         complete: () => {
           console.info("Registro Completado");
@@ -97,6 +92,30 @@ export class UsuariosComponent implements OnInit {
       alert("Error al ingresar los datos.");
     }
   }
+  loadRoles() {
+    this._apiService.getRoles().subscribe((roles: Rol[]) => {
+      console.log(roles);
+      this.roles = roles;
+    });
+  }
+
+  loadUser() {
+    this._apiService.getUsers().subscribe((data: UsuarioInterfaces[]) => {
+      console.log("datos obtenidos de spring boot");
+      console.log(data);
+      this.userList = data;
+    })
+  }
+  selectRole(event: Event) {
+    const selectedRoleId = (event.target as HTMLSelectElement).value;
+    const selectedRole = this.roles.find(role => role.idRole === +selectedRoleId);
+    if (selectedRole) {
+      this.form.patchValue({
+        rolId: selectedRole.idRole,
+        rolName: selectedRole.nombre
+      });
+    }
+  }
 
 
 
@@ -106,7 +125,9 @@ export class UsuariosComponent implements OnInit {
   viewUser() {
     this.router.navigate(['/administrador/usuarios']);
   }
-  updateUser() {
+  modUser() {
     this.router.navigate(['/administrador/updateuser']);
   }
+
+
 }

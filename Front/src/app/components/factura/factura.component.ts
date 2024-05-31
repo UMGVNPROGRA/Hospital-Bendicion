@@ -107,7 +107,7 @@ export class FacturaComponent implements OnInit {
 
   mostrarDatos() {
     this.nombre_paciente = this.filaSeleccionado.paciente.nombre;
-    this.nombre_medico = this.filaSeleccionado.id_medico.nombre_medico;
+    this.nombre_medico = this.filaSeleccionado.medico.nombre_medico;
     this.direccion = this.filaSeleccionado.paciente.direccion;
     this.fecha = this.filaSeleccionado.fecha_cita;
     this.descripcion = this.filaSeleccionado.descripcion;

@@ -17,16 +17,25 @@
                 <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold" href="#" routerLink="administrador/reguser" routerLinkActive="active" (click)="regUser()">Registrar</a>
             </li>
             <li class="mr-1">
-                <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold" href="#"  routerLink="administrador/updateuser" routerLinkActive="active" (click)="updateUser()">Modificar</a>
+                <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold" href="#"  routerLink="administrador/updateuser" routerLinkActive="active" (click)="modUser()">Modificar</a>
             </li>
         </ul>
         <div class="overflow-x-auto bg-white shadow-lg rounded-lg">
             <div class="contain py-16">
                 <div class="max-w-lg mx-auto shadow px-6 py-7 rounded overflow-hidden">
-                    <h2 class="text-2xl uppercase font-medium mb-1">Registro de usuario</h2>
+                    <h2 class="text-2xl uppercase font-medium mb-1">Modificacion de usuario</h2>
                     <p class="text-gray-600 mb-6 text-sm">¡Por favor, ingrese los datos correctamente!</p>
-                    <form autocomplete="off" [formGroup]="form" (ngSubmit)="registroUser()">
+                    <form autocomplete="off" [formGroup]="form" (ngSubmit)="updateUser()">
                         <p class="text-red-500"></p>
+                        <div class="space-y-2">
+                          <div>
+                              <label for="rol" class="text-gray-600 mb-2 block">Selecione el usuario para Modificar</label>
+                              <select id="rol" class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-teal-500 placeholder-gray-400" (change)="selectIdUser($event)">
+                                  <option *ngFor="let user of userList" [value]="user.idUsuario">{{ user.username }}</option>
+                              </select>
+                          </div>
+                      </div>
+                      <p class="text-2xl uppercase font-medium mb-1">Nuevos datos</p>
                         <div class="space-y-2">
                             <div>
                                 <label for="username" class="text-gray-600 mb-2 block">Nombre de Usuario</label>
@@ -42,7 +51,6 @@
                             </select>
                           </div>
                         </div>
-
 
                         <div class="space-y-2">
                             <div>

@@ -43,11 +43,13 @@ export class LoginComponent implements OnInit {
         next: (userData) => {
           let token: string = this._apiSerive.userRoleValue;
           console.log(userData);
-         this.redirectBasedOnRole(token);
+          alert("Sesion iniciado con exito" )
+          this.redirectBasedOnRole(token);
         },
         error: (errorData) => {
           console.error(errorData);
           this.loginError = errorData;
+          alert("No se pudo iniciar sesion revise los datos" )
         },
         complete: () => {
           console.info("Login completo");
@@ -65,7 +67,7 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl('/administrador');
     } else if (role === 'secretaria') {
       this.router.navigateByUrl('/secretaria');
-    }else if (role === 'doctor') {
+    } else if (role === 'doctor') {
       this.router.navigateByUrl('/doctor');
     } else {
       console.error('Role no reconocido');
