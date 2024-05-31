@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, inject, input } from '@angular/core';
 import { LoginService } from 'app/services/login.service';
 import { CitasI } from '../modelos/citas.interface';
 import { RecetaService } from 'app/services/receta.service';
@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CitasInterfaces } from 'app/interfaces/citas-interfaces';
 import { Medicamentos, MedicamentosReceta } from 'app/interfaces/medicamentos-interface';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-receta',
   standalone: true,
@@ -17,6 +18,8 @@ export class RecetaComponent implements OnInit {
   citas: CitasInterfaces | undefined;
   idCita: number = 0;
 
+  private router = inject(Router);
+  inmuebleId = input<number>(0, { alias: 'id' });
   medicamento: MedicamentosReceta | undefined;
   idMed: string = "";
   descripcion: string = "";

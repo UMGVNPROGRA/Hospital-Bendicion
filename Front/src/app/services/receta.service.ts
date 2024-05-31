@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { CitasI } from 'app/components/modelos/citas.interface';
 import { CitasInterfaces } from 'app/interfaces/citas-interfaces';
-import { Recetas } from 'app/interfaces/recetas';
+import { Recetas, RecetasConsulta } from 'app/interfaces/recetas';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 
@@ -24,8 +24,12 @@ export class RecetaService {
     return this._http.get<any>(`${this.url}/medicamento/${cod}/${est}`).pipe(res=>res);
   }
 
-  getRecetaByMed(id_receta: number, id_medico: number): Observable<any> {
-    return this._http.get<any>(`${this.url}/recetas/${id_receta}/${id_medico}`).pipe(res=>res);
+  getRecetaByMed(id_receta: number): Observable<any> {
+    return this._http.get<any>(`${this.url}/recetas/${id_receta}/0`).pipe(res=>res);
+  }
+
+  getRecetas(): Observable<RecetasConsulta[]> {
+    return this._http.get<RecetasConsulta[]>(`${this.url}/recetas`).pipe(res=>res);
   }
 
   saveReceta(receta: Recetas) : Observable<any> {

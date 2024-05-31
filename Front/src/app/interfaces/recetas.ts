@@ -12,7 +12,7 @@ export interface Recetas {
 export interface RecetasConsulta {
     "id_receta": number
     "id_cita":  number
-    "fecha": Date 
+    "fecha": string | null
     "nombre": String
     "nombre_medico": String
 }
