@@ -7,6 +7,7 @@ import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Va
 import { CitasInterfaces } from 'app/interfaces/citas-interfaces';
 import { Medicamentos, MedicamentosReceta } from 'app/interfaces/medicamentos-interface';
 import { Router } from '@angular/router';
+import { RecetasConsulta } from 'app/interfaces/recetas';
 @Component({
   selector: 'app-receta',
   standalone: true,
@@ -17,9 +18,7 @@ import { Router } from '@angular/router';
 export class RecetaComponent implements OnInit {
   citas: CitasInterfaces | undefined;
   idCita: number = 0;
-
-  private router = inject(Router);
-  inmuebleId = input<number>(0, { alias: 'id' });
+  @Input('id') id: number = 0
   medicamento: MedicamentosReceta | undefined;
   idMed: string = "";
   descripcion: string = "";
@@ -48,13 +47,24 @@ export class RecetaComponent implements OnInit {
 
 
   ngOnInit() {
+    console.log("recibo", this.id)
     //this.cargaCitas(1);
-    this.recetaForm = this.fb.group({
-      id_cita: ['',Validators.required],
-      id_medicamento: ['', Validators.required],
-      descripcion: ['', Validators.required],
-    });
-
+    if(!this.id){
+      this.recetaForm = this.fb.group({
+        id_cita: ['',Validators.required],
+        id_medicamento: ['', Validators.required],
+        descripcion: ['', Validators.required],
+      });
+  
+     
+    }else {
+      this.recetaForm = this.fb.group({
+        id_cita: ['',Validators.required],
+        id_medicamento: ['', Validators.required],
+        descripcion: ['', Validators.required],
+      });
+    }
+    
     this.recetaForm.patchValue({
       id_medicamento: this.arrayIdMed
     });
@@ -62,7 +72,6 @@ export class RecetaComponent implements OnInit {
     this.recetaForm.patchValue({
       descripcion: this.arrayDes
     });
-
    
   }
 
@@ -96,6 +105,7 @@ export class RecetaComponent implements OnInit {
       console.log(this.medicamento);
     });
   };
+
 
   finalizar(){
   this.arrayMed.forEach(med => {

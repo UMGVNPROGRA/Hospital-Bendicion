@@ -53,7 +53,7 @@ export const routes: Routes = [
       { path: 'historial', component: HistorialComponent },
       { path: 'citas', component: CitasComponent },
       { path: 'paciente', component: PacienteComponent },
-      { path: 'recetas', component: RecetaComponent },
+      { path: 'recetas/:id', component: RecetaComponent },
       { path: 'citasprogramadas', component: CitasProgramadasComponent },
       { path: 'medico', component: MedicoComponent },
       { path: 'factura', component: FacturaComponent },
@@ -79,7 +79,7 @@ export const routes: Routes = [
     component: MenuDoctorComponent,
     children: [
       { path: 'citasprogramadas', component: CitasProgramadasComponent },
-      { path: 'recetas', component: RecetaComponent },
+      { path: 'recetas/:id', component: RecetaComponent },
       { path: 'historial', component: HistorialComponent },
       { path: 'medicamentos', component: MedicamentosComponent },
     ],

@@ -20,6 +20,11 @@ export class RecetaService {
       .pipe(res => res)
   }
 
+  getRecetasById(id: number) : Observable<Recetas> {
+    return this._http.get<Recetas>(`${this.url}/recetas/${id}`)
+      .pipe(res => res)
+  }
+
   getcitasMedicamentoByCod(cod: string, est: string): Observable<any> {
     return this._http.get<any>(`${this.url}/medicamento/${cod}/${est}`).pipe(res=>res);
   }

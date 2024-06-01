@@ -60,7 +60,7 @@
                     {{item.nombre_medico}}
                 </td>
                 <td class="px-6 py-4">
-                    <button [routerLink]="['administrador/recetas']" class="button" class=" mt-4 focus:outline-none text-white bg-custom-color1 hover:bg-custom-color2 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Editar</button>
+                    <button [routerLink]="'/administrador/recetas/'+item.id_receta" class="button" class=" mt-4 focus:outline-none text-white bg-custom-color1 hover:bg-custom-color2 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Editar</button>
                     
                 </td>
             </tr>
