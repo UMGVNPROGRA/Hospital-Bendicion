@@ -16,3 +16,19 @@ export interface RecetasConsulta {
     "nombre": String
     "nombre_medico": String
 }
+
+
+export interface RecetasConsultaEditar {
+    "id_receta": number
+    "id_cita":  number
+    "fecha": string | null
+    "nombre": String
+    "nombre_medico": String
+    "detalle": Detalle []
+}
+
+export interface Detalle {
+    "id_medicamento": number
+    "nombre_medicamento":  string
+    "descripcion": string 
+}
