@@ -1,4 +1,3 @@
-import {Timestamp} from "rxjs";
 import {UsuarioInterfaces} from "./usuario-interfaces";
 
 export interface PacienteInterfaces {

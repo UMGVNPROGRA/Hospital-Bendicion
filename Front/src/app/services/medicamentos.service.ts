@@ -2,24 +2,25 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'environments/environment';
-import { NewPacienteInterface } from 'app/interfaces/new-paciente-interface';
+import { NewMedicamentos } from 'app/interfaces/new-medicamentos-interface';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class PacienteService {
+export class MedicamentosService {
 
   constructor(private httpClient: HttpClient) { }
 
   private url = environment.apiURL;
 
-  getPaciente() : Observable<any> {
-    return this.httpClient.get(`${this.url}/paciente`)
+  getMedicamentos() : Observable<any> {
+    return this.httpClient.get(`${this.url}/medicamento`)
       .pipe(res => res)
   }
 
-  postPaciente(pacienteJson : NewPacienteInterface) : Observable<any> {
-    return this.httpClient.post(`${this.url}/paciente`,pacienteJson)
+  postMedicamentos(medicamentoJson : NewMedicamentos) : Observable<any> {
+    return this.httpClient.post(`${this.url}/medicamento`,medicamentoJson)
       .pipe(res=>res)
   }
 }

@@ -19,6 +19,7 @@ import { UsuariosComponent } from './components/nav-usuarios/reg-user/reg-user.c
 import { PacienteActualizarComponent } from './components/paciente-actualizar/paciente-actualizar.component';
 import { RecetaConsultaComponent } from './components/receta-consulta/receta-consulta.component';
 import { ModUserComponent } from './components/nav-usuarios/mod-user/mod-user.component';
+import { PacienteConsultarComponent } from './components/paciente-consultar/paciente-consultar.component';
 
 export const routes: Routes = [
   {
@@ -32,6 +33,7 @@ export const routes: Routes = [
 
   { path: 'paciente', component: PacienteComponent },
   { path: 'pacienteactualizar', component: PacienteActualizarComponent },
+  { path: 'pacienteconsultar', component: PacienteConsultarComponent },
 
   { path: 'recetas', component: RecetaComponent },
   { path: 'citasprogramadas', component: CitasProgramadasComponent },
