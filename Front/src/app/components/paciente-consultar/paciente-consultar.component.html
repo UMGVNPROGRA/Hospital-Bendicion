@@ -1,1 +1,49 @@
-<p>paciente-consultar works!</p>
+<div class="bg-white min-h-screen flex flex-col lg:flex-row items-start justify-center p-4 lg:mt-24">
+    <!-- Componente de Gestión de Citas -->
+      <div class="w-full p-8 rounded shadow-md lg:min-h-screen">
+        <h2 class="text-2xl font-bold mb-4">Lista de Pacientes</h2>
+        <pre>
+    </pre>
+        <div class="overflow-x-auto">
+          <table *ngFor="let item of paciente" class="min-w-full bg-white border border-gray-200">
+            <thead>
+            <tr>
+              <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">ID Paciente</th>
+              <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Nombre</th>
+              <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Apellido</th>
+              <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Fecha de Nacimiento</th>
+              <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Direccion</th>
+              <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Telefono</th>
+              <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">DPI</th>
+              <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">NIT</th>
+              <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Email</th>
+              <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Genero</th>
+              <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Estado</th>
+              <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">ID Usuario</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"> {{item.id_paciente}} </td>
+              <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"> {{item.nombre}} </td>
+              <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"> {{item.apellido}} </td>
+              <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"> {{item.fecha_nacimiento}} </td>
+              <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"> {{item.direccion}} </td>
+              <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"> {{item.telefono}} </td>
+              <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"> {{item.dpi}} </td>
+              <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"> {{item.nit}} </td>
+              <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"> {{item.email}} </td>
+              <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"> {{item.genero}} </td>
+              <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"> {{item.estado}} </td>
+              <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"> {{item.usuario.idUsuario}} </td>
+              <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700">
+                <button class="px-3 py-1 text-white bg-blue-500 rounded hover:bg-blue-700">Editar</button>
+                <button class="px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700 ml-2">Eliminar</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+                               
