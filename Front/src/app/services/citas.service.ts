@@ -18,6 +18,11 @@ getcitas() : Observable<any> {
     .pipe(res => res)
 }
 
+getcitasByMedico(idMed : string) : Observable<any> {
+    return this.httpClient.get(`${this.url}/citas/citasbymedico/${idMed}`)
+      .pipe(res => res)
+  }
+
 postCita(citaJson : EnvioCitasInterfaces) : Observable<any> {
   return this.httpClient.post(`${this.url}/citas`,citaJson)
     .pipe(res=>res)
