@@ -1,19 +1,25 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
+import { MedicoInterfaces } from 'app/interfaces/medico-interfaces';
+import { MedicoRequest } from 'app/interfaces/MedicoRequest';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MedicosService {
 
-  constructor(private httpClient: HttpClient) { }
 
-  private url = environment.apiURL;
+  constructor() { }
 
-  getMedicos(): Observable<any> {
-    return this.httpClient.get(`${this.url}/api/medico/consultar`)
-      .pipe(res => res)
+  private _http = inject(HttpClient);
+
+  getMedicos(): Observable<MedicoInterfaces[]> {
+    return this._http.get<MedicoInterfaces[]>(environment.apiURL + "/medico/consultar");
   }
+  postUser(userRequest: MedicoRequest): Observable<any> {
+    return this._http.post(`${environment.apiURL}/medico/registrar`, userRequest);
+  }
+
 }
