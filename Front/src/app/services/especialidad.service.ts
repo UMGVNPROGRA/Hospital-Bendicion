@@ -13,7 +13,7 @@ export class EspecialidadService {
   private url = environment.apiURL;
   constructor(private httpClient: HttpClient) { }
 
-  getMedicos(): Observable<EspecialidadesInterfaces[]> {
-    return this._http.get<EspecialidadesInterfaces[]>(environment.apiURL + "/medico/consultar");
+  getEspecialidades(): Observable<EspecialidadesInterfaces[]> {
+    return this._http.get<EspecialidadesInterfaces[]>(environment.apiURL + "/api/especialidades/consultar");
   }
 }

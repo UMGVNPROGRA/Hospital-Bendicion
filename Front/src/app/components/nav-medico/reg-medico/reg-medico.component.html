@@ -17,7 +17,7 @@
       </li>
     </ul>
 
-    <form [formGroup]="medicoForm" (submit)="onSubmitMedico()">
+    <form [formGroup]="form" (ngSubmit)="onSubmitMedico()">
       <div class="grid gap-6 mb-6 md:grid-cols-2">
         <div>
           <label for="nombre_medico" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
@@ -29,8 +29,9 @@
         </div>
         <div>
           <label for="especialidad" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Especialidad</label>
-          <select formControlName="especialidad" id="especialidad" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-            <option *ngFor="let especialidad of especialidades" [ngValue]="especialidad.id_especialidad">{{ especialidad.nombre_especialidad }}</option>
+          <select formControlName="especialidad" id="especialidad" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" (change)="selectEspecialidad($event)" required>
+            <option value="" disabled selected>Seleccione una especialidad</option>
+            <option *ngFor="let especialidad of especialidades" [value]="especialidad.id_especialidad">{{ especialidad.nombre_especialidad }}</option>
           </select>
         </div>
         <div>
@@ -54,21 +55,23 @@
           <input formControlName="centro_hospitalario" type="text" id="centro_hospitalario" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
         </div>
         <div>
-          <label for="cod_jefe_inmediato" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Código Jefe Inmediato</label>
-          <input formControlName="cod_jefe_inmediato" type="text" id="cod_jefe_inmediato" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+          <label for="observaciones" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Observaciones</label>
+          <textarea formControlName="observaciones" id="observaciones" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
         </div>
         <div>
           <label for="jornada" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jornada</label>
           <input formControlName="jornada" type="text" id="jornada" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
         </div>
         <div>
-          <label for="observaciones" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Observaciones</label>
-          <textarea formControlName="observaciones" id="observaciones" rows="3" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
+          <label for="cod_jefe_inmediato" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Código Jefe Inmediato</label>
+          <input formControlName="cod_jefe_inmediato" type="text" id="cod_jefe_inmediato" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+        </div>
+        <div>
+          <label for="fechaCreacion" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de Creación</label>
+          <input formControlName="fechaCreacion" type="date" id="fechaCreacion" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
         </div>
       </div>
-      <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-purple-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-purple-400">
-        Guardar
-      </button>
+      <button type="submit" class="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Registrar Médico</button>
     </form>
   </div>
 </section>
