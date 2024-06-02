@@ -41,19 +41,19 @@
           <div class="flex border-t border-b mb-6 border-gray-200 py-2">
             <span class="text-gray-500">Total</span>
             <input (change)="calculoSubTotal()" [disabled]="isDisabled" required
-            type="number" 
-            class="ml-auto text-gray-900 border rounded-lg p-2" 
-            [(ngModel)]="total" 
+            type="number"
+            class="ml-auto text-gray-900 border rounded-lg p-2"
+            [(ngModel)]="total"
             name="total"
             placeholder="0.00"
           />
           </div>
           <div class="flex border-t border-b mb-6 border-gray-200 py-2">
             <span class="text-gray-500">SubTotal</span>
-            <input 
+            <input
             type="number" [disabled]="true"
-            class="ml-auto text-gray-900 border rounded-lg p-2" 
-            [(ngModel)]="subtotal" 
+            class="ml-auto text-gray-900 border rounded-lg p-2"
+            [(ngModel)]="subtotal"
             name="subtotal"
             placeholder="0.00"
           />
@@ -73,4 +73,3 @@
       </div>
     </div>
   </section>
-  

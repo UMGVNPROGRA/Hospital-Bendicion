@@ -64,8 +64,18 @@ export class CitasProgramadasComponent implements OnInit {
     }
   }
 
-  onEliminar(event: any) {
-    this.citaSelect = event.target.valueOf();
-
+  onPendiente(id: number) {
+    console.log(id)
+    if (confirm('¿Desea colocar en pendiente?')) {
+      console.log('true')
+    }
   }
+
+  onCancelar(id: number) {
+    console.log(id)
+    if (confirm('¿Desea cancelar?')){
+      console.log('true')
+    }
+  }
+
 }

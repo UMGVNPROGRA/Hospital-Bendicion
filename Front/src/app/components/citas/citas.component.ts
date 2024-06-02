@@ -40,8 +40,7 @@ export class CitasComponent implements OnInit{
 
   constructor(private pacientesService: PacienteService,
               private usuariosService: UsuarioService,
-              private medicosService:MedicosService,
-              private datePipe: DatePipe
+              private medicosService:MedicosService
               ) {
   }
 
