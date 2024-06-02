@@ -19,3 +19,6 @@ COPY --from=build /app/dist/front /usr/share/nginx/html
 
 # Exponer el puerto 4200 para que la aplicación sea accesible
 EXPOSE 4200
+
+# Comando por defecto para ejecutar Nginx en primer plano
+CMD ["nginx", "-g", "daemon off;"]
