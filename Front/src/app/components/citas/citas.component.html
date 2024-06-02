@@ -1,20 +1,20 @@
 <!-- Estructura de la página -->
 <div class="bg-white min-h-screen flex flex-col lg:flex-row items-start justify-center p-4 lg:mt-24">
-  <!-- Componente de Gestión de Citas -->
-  <div class="flex-col">
-    <app-citas-gestion></app-citas-gestion>
-  </div>
 
   <!-- Formulario de Crear Cita -->
   <form class="w-full lg:w-4/5 rounded shadow-md lg:ml-4 lg:min-h-screen flex flex-col items-center px-4 py-2" [formGroup]="citasForm" (ngSubmit)="onSubmitCita()">
     <div class="max-w-lg" >
     <h2 class="text-2xl font-bold mb-6 text-center">Crear Cita</h2>
+      @if (mostrarBannerExito){
+        <div class="bg-green-500 text-white text-center py-2 fixed top-0 left-0 right-0 z-50"> Cita guardada exitosamente. </div>
+      }
 
     <div class="mb-4">
       <label class="block text-gray-700 font-bold mb-2" for="id_paciente">Paciente</label>
       <select formControlName="id_paciente" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline" id="id_paciente" name="id_paciente">
-        <option value="">Selecciona un paciente</option>
-        <option value="1">Opción 1</option>
+        @for (paciente of pacientes; track paciente.id_paciente){
+          <option value="{{paciente.id_paciente}}"> {{paciente.nombre}} {{paciente.apellido}} - {{paciente.dpi}}</option>
+        }
       </select>
     </div>
 
@@ -32,15 +32,18 @@
       <label class="block text-gray-700 font-bold mb-2" for="id_usuario">Usuario</label>
       <select  formControlName="id_usuario" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline" id="id_usuario" name="id_usuario">
         <option value="">Selecciona un usuario</option>
-        <option value="1">Opción 1</option>
+        @for (usuario of usuarios; track usuario.idUsuario){
+          <option value="{{usuario.idUsuario}}">{{usuario.username}}</option>
+        }
       </select>
     </div>
 
     <div class="mb-4">
       <label class="block text-gray-700 font-bold mb-2" for="id_medico">Médico</label>
       <select formControlName="id_medico" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline" id="id_medico" name="id_medico">
-        <option value="">Selecciona un médico</option>
-        <option value="7">Opción 1</option>
+        @for (medico of medicos; track medico.id_medico){
+          <option value="{{medico.id_medico}}">{{medico.nombre_medico}} {{medico.apellido_medico}} - {{medico.id_medico}}</option>
+        }
       </select>
     </div>
 

@@ -8,6 +8,6 @@ export interface CitasInterfaces {
   "fecha_cita": string,
   "descripcion": string,
   "usuario": UsuarioInterfaces,
-  "id_medico": MedicoInterfaces,
+  "medico": MedicoInterfaces,
   "estado": string
 }

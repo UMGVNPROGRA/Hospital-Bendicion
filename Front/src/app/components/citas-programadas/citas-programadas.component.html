@@ -1,19 +1,26 @@
-<!-- Componente de Gestión de Citas -->
-<div class="flex-col">
-  <app-citas-gestion></app-citas-gestion>
-</div>
+
 <div class="bg-white min-h-screen flex flex-col lg:flex-row items-start justify-center p-4 lg:mt-24">
 <!-- Componente de Gestión de Citas -->
   <div class="w-full p-8 rounded shadow-md lg:min-h-screen">
     <h2 class="text-2xl font-bold mb-4">Citas Programadas</h2>
-    <pre>
-  {{cita}}
-</pre>
     <div class="overflow-x-auto">
+      <label>
+        Medico
+      </label>
+      <select (change)="onChangeMedico($event)" class="block appearance-none bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline" id="id_medico" name="id_medico">
+        <option value="0">
+          Todos
+        </option>
+        @for (medico of medicos; track medico.id_medico){
+          <option value="{{medico.id_medico}}"> {{medico.nombre_medico}} {{medico.apellido_medico}} - {{medico.id_usuario}}</option>
+        }
+      </select>
       <table class="min-w-full bg-white border border-gray-200">
         <thead>
         <tr>
           <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Fecha</th>
+          <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Paciente</th>
+          <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Paciente - DPI</th>
           <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Descripción</th>
           <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Estado</th>
           <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Médico</th>
@@ -21,16 +28,28 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700 whitespace-nowrap"></td>
-          <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"></td>
-          <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"></td>
-          <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"></td>
-          <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700">
-            <button class="px-3 py-1 text-white bg-blue-500 rounded hover:bg-blue-700">Editar</button>
-            <button class="px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700 ml-2">Eliminar</button>
-          </td>
-        </tr>
+          @for (cita of citas; track cita.id_cita) {
+            <tr>
+              <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700 whitespace-nowrap">{{cita.fecha_cita | date: 'dd/MM/yyyy HH:mm'}}</td>
+              <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700 whitespace-nowrap">{{cita.paciente.nombre}} {{cita.paciente.apellido}}</td>
+              <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700 whitespace-nowrap">{{cita.paciente.dpi}}</td>
+              <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700">{{cita.descripcion}}</td>
+              @if (cita.estado == 'A') {
+                <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700" style="color: blue"> Activa </td>
+              } @else if (cita.estado == 'C') {
+                <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700" style="color: red"> Cancelada </td>
+              } @else if (cita.estado == 'P') {
+                <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700" style="color: orange"> Pendiente </td>
+              }
+
+              <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700">{{cita.medico.nombre_medico}} {{cita.medico.apellido_medico}} </td>
+              <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700">
+                <button class="px-3 py-1 text-white bg-blue-500 rounded hover:bg-blue-700">Editar</button>
+                <button class="px-3 py-1 text-white bg-orange-500 rounded hover:bg-orange-700 ml-2" (click)="onPendiente(cita.id_cita)"> Pendiente</button>
+                <button class="px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700 ml-2" (click)="onCancelar(cita.id_cita)">Cancelar</button>
+              </td>
+            </tr>
+          }
         </tbody>
       </table>
     </div>
