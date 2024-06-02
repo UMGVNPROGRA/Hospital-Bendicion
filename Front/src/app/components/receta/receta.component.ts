@@ -64,6 +64,13 @@ export class RecetaComponent implements OnInit {
         id_medicamento: ['', Validators.required],
         descripcion: ['', Validators.required],
       });
+      this.recetaForm.patchValue({
+        id_medicamento: this.arrayIdMed,
+      });
+  
+      this.recetaForm.patchValue({
+        descripcion: this.arrayDes,
+      });
     } else {
       console.log('estoy aqui');
       this.recetasSrv.getRecetaEditar(this.id).subscribe((data) => {
@@ -75,14 +82,16 @@ export class RecetaComponent implements OnInit {
         "fecha": data[0].fecha,
         "nombre": data[0].nombre,
         "nombre_medico": data[0].nombre_medico,
-        "detalle": this.detalle
+        "detalle": this.detalle,
+        "descripcion": data[0].descripcion,
+        "fecha_cita": data[0].fecha_cita
        }
 
        console.log('esto tiene el detalle', this.receta);
         this.recetaForm = this.fb.group({
           id_cita: [data[0].id_cita, Validators.required],
-          id_medicamento: ['', Validators.required],
-          descripcion: ['', Validators.required],
+          id_medicamento: [this.arrayIdMed, Validators.required],
+          descripcion: [this.arrayDes, Validators.required],
         });
 
         data[0].detalle.forEach((element) => {
@@ -115,13 +124,7 @@ export class RecetaComponent implements OnInit {
 
 
 
-    this.recetaForm.patchValue({
-      id_medicamento: this.arrayIdMed,
-    });
-
-    this.recetaForm.patchValue({
-      descripcion: this.arrayDes,
-    });
+   
   }
 
 
@@ -162,6 +165,10 @@ export class RecetaComponent implements OnInit {
   }
 
   finalizar() {
+    console.log("Estp tengo",this.recetaForm.value);
+    this.arrayIdMed.splice(0)
+    this.arrayDes.splice(0)
+    
     this.arrayMed.forEach((med) => {
       this.arrayIdMed.push(med.id_medicamento);
     });

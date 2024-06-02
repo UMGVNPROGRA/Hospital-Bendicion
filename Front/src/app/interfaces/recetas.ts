@@ -25,6 +25,8 @@ export interface RecetasConsultaEditar {
     "nombre": String
     "nombre_medico": String
     "detalle": Detalle []
+    "descripcion": String
+    "fecha_cita": String
 }
 
 export interface Detalle {
