@@ -11,6 +11,7 @@ RUN npm install
 COPY . .
 
 # Construir el proyecto
+#RUN npm run build --prod
 RUN npm run build --prod
 
 # Etapa 2: Servir la aplicación con Nginx
