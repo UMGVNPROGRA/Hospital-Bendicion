@@ -32,7 +32,7 @@ export class MenuAdministradorComponent implements OnInit {
 
   }
   modPaciente() {
-    this.router.navigate(['/administrador/paciente']);
+    this.router.navigate(['/administrador/paciente/:id']);
 
   }
   modCitas() {
@@ -48,7 +48,7 @@ export class MenuAdministradorComponent implements OnInit {
 
   }
   modMedicamento() {
-    this.router.navigate(['/administrador/medicamentos']);
+    this.router.navigate(['/administrador/medicamentos:id']);
 
   }
   modRecetas() {

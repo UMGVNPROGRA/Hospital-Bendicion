@@ -1,4 +1,5 @@
 export interface NewPacienteInterface {
+    "id_paciente": number,
     "nit": string,
     "dpi": string,
     "fecha_nacimiento": string,

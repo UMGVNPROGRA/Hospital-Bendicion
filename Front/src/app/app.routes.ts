@@ -20,6 +20,7 @@ import { PacienteActualizarComponent } from './components/paciente-actualizar/pa
 import { RecetaConsultaComponent } from './components/receta-consulta/receta-consulta.component';
 import { ModUserComponent } from './components/nav-usuarios/mod-user/mod-user.component';
 import { PacienteConsultarComponent } from './components/paciente-consultar/paciente-consultar.component';
+import { MedicamentosConsultarComponent } from './components/medicamentos-consultar/medicamentos-consultar.component';
 
 export const routes: Routes = [
   {
@@ -54,14 +55,16 @@ export const routes: Routes = [
       {path: 'reguser', component: UsuariosComponent},
       { path: 'historial', component: HistorialComponent },
       { path: 'citas', component: CitasComponent },
-      { path: 'paciente', component: PacienteComponent },
+      { path: 'paciente/:id', component: PacienteComponent },
       { path: 'recetas/:id', component: RecetaComponent },
       { path: 'citasprogramadas', component: CitasProgramadasComponent },
       { path: 'medico', component: MedicoComponent },
       { path: 'factura', component: FacturaComponent },
-      { path: 'medicamentos', component: MedicamentosComponent },
+      { path: 'medicamentos/:id', component: MedicamentosComponent },
       { path: 'especialidad', component: EspecialidadComponent },
       { path: 'consultaReceta', component: RecetaConsultaComponent },
+      { path: 'consultaPaciente', component: PacienteConsultarComponent },
+      { path: 'consultaMedicamento', component: MedicamentosConsultarComponent},
     ],
   },
   {

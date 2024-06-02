@@ -45,7 +45,7 @@
         </li>
         <li class="py-2">
           <a href="#" class="flex items-center text-gray-200 hover:text-white"
-          routerLink="administrador/paciente" routerLinkActive="active" (click)="modPaciente()">
+          [routerLink]="['/administrador/paciente/',0]" routerLinkActive="active" (click)="modPaciente()">
             <i class='bx bxs-user mr-2'></i>
             Pacientes
           </a>
@@ -75,14 +75,14 @@
         <!-- Nuevos módulos -->
         <li class="py-2">
           <a href="#" class="flex items-center text-gray-200 hover:text-white"
-          routerLink="administrador/medicamentos" routerLinkActive="active" (click)="modMedicamento()">
+          [routerLink]="['/administrador/medicamentos/',0]" routerLinkActive="active">
             <i class='bx bxs-capsule mr-2'></i>
             Medicamentos
           </a>
         </li>
         <li class="py-2">
           <a href="#" class="flex items-center text-gray-200 hover:text-white"
-          routerLink="administrador/recetas" routerLinkActive="active" (click)="modRecetas()">
+          [routerLink]="['/administrador/recetas/',0]" routerLinkActive="active">
             <i class='bx bxs-prescription mr-2'></i>
             Receta Médica
           </a>
