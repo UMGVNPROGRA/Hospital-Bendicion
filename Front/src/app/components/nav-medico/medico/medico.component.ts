@@ -30,11 +30,11 @@ export class MedicoComponent implements OnInit {
   }
 
   regMedico() {
-    this.router.navigate(['/administrador/reguser']);
+    this.router.navigate(['/administrador/regmedico']);
 
   }
-  deleteMedico() {
-    this.router.navigate(['/administrador/usuarios']);
+  viewMedico() {
+    this.router.navigate(['/administrador/medico']);
 
   }
   updateMedico() {

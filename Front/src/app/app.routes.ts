@@ -24,6 +24,7 @@ import { PacienteConsultarComponent } from './components/paciente-consultar/paci
 import { MedicamentosConsultarComponent } from './components/medicamentos-consultar/medicamentos-consultar.component';
 
 import { MedicoComponent } from './components/nav-medico/medico/medico.component';
+import { RegMedicoComponent } from './components/nav-medico/reg-medico/reg-medico.component';
 
 
 export const routes: Routes = [
@@ -53,7 +54,7 @@ export const routes: Routes = [
     path: 'administrador',
     component: MenuAdministradorComponent,
     children: [
-
+      {path: 'regmedico', component: RegMedicoComponent},
       {path: 'updateuser', component: ModUserComponent},
       {path: 'usuarios', component: UsuarioComponent  },
       {path: 'reguser', component: UsuariosComponent},
