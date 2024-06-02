@@ -1,10 +1,10 @@
 export interface Medicamentos {
     "id_medicamento": number
-    "codigo_medicamento": String
+    "codigo": String
     "nombre_medicamento": String
     "tipo_medida": String
-    "estado": String
     "tipo_medicamento": String
+    "estado": String
 }
 
 export interface MedicamentosReceta {

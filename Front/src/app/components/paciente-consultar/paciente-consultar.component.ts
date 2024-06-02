@@ -3,12 +3,13 @@ import { PacienteInterfaces } from 'app/interfaces/paciente-interfaces';
 import { PacienteService } from 'app/services/paciente.service';
 import { initFlowbite } from 'flowbite';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-paciente-consultar',
   standalone: true,
   imports: [
-    CommonModule
+    CommonModule,RouterLink
   ],
   templateUrl: './paciente-consultar.component.html',
   styleUrl: './paciente-consultar.component.scss'
@@ -25,12 +26,12 @@ export class PacienteConsultarComponent {
   }
 
   getpaciente() {
-    this.service.getPaciente().subscribe({
-      next: value => {
-        this.paciente = value.data;
+    this.service.getPaciente().subscribe((data) => {
+      
+        this.paciente = data;
         console.table(this.paciente)
-      },
-      error: error => console.error(error)})
-  }
+    
+      });
+    }
 
 }

@@ -5,12 +5,11 @@
         <pre>
     </pre>
         <div class="overflow-x-auto">
-          <table *ngFor="let item of paciente" class="min-w-full bg-white border border-gray-200">
+          <table  class="min-w-full bg-white border border-gray-200">
             <thead>
             <tr>
               <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">ID Paciente</th>
               <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Nombre</th>
-              <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Apellido</th>
               <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Fecha de Nacimiento</th>
               <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Direccion</th>
               <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Telefono</th>
@@ -19,14 +18,16 @@
               <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Email</th>
               <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Genero</th>
               <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Estado</th>
-              <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">ID Usuario</th>
+              <th class="px-4 py-2 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600">Action</th>
+            
             </tr>
             </thead>
             <tbody>
-            <tr>
+            @for (item of paciente; track $index) {
+              <tr>
+              
               <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"> {{item.id_paciente}} </td>
               <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"> {{item.nombre}} </td>
-              <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"> {{item.apellido}} </td>
               <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"> {{item.fecha_nacimiento}} </td>
               <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"> {{item.direccion}} </td>
               <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"> {{item.telefono}} </td>
@@ -35,12 +36,11 @@
               <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"> {{item.email}} </td>
               <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"> {{item.genero}} </td>
               <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"> {{item.estado}} </td>
-              <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700"> {{item.usuario.idUsuario}} </td>
               <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700">
-                <button class="px-3 py-1 text-white bg-blue-500 rounded hover:bg-blue-700">Editar</button>
-                <button class="px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700 ml-2">Eliminar</button>
+                <button [routerLink]="'/administrador/paciente/'+item.id_paciente" class="px-3 py-1 text-white bg-blue-500 rounded hover:bg-blue-700">Editar</button>
               </td>
             </tr>
+          }
             </tbody>
           </table>
         </div>
