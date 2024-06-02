@@ -26,6 +26,7 @@ export class CitasProgramadasComponent implements OnInit {
   citas: CitasInterfaces[] | undefined;
   medicos: MedicoInterfaces[] | undefined;
   idMedicoSelec: string | null = null;
+  citaSelect: string | null = null;
 
   ngOnInit() {
     initFlowbite();
@@ -61,5 +62,10 @@ export class CitasProgramadasComponent implements OnInit {
     if(this.idMedicoSelec){
       this.getCitasByMedico(this.idMedicoSelec)
     }
+  }
+
+  onEliminar(event: any) {
+    this.citaSelect = event.target.valueOf();
+
   }
 }

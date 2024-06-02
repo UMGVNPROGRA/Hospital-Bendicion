@@ -67,7 +67,7 @@ export class RecetaComponent implements OnInit {
     } else {
       console.log('estoy aqui');
       this.recetasSrv.getRecetaEditar(this.id).subscribe((data) => {
-        
+
         this.idCita = data[0].id_cita;
        this.receta = {
         "id_receta": this.id,
@@ -94,18 +94,18 @@ export class RecetaComponent implements OnInit {
             "descripcionRecta": element.descripcion
           }
           this.arrayMed.push(this.medicamento)
-         
+
         });
         this.arrayMed.forEach((med) => {
           this.arrayIdMed.push(med.id_medicamento);
         });
-    
+
         this.arrayMed.forEach((med) => {
           this.arrayDes.push(med.descripcionRecta);
         });
        console.log('esto tiene el arrayMed', this.arrayIdMed);
 
-      
+
 
 
         console.log(this.recetaForm.value);
@@ -114,7 +114,7 @@ export class RecetaComponent implements OnInit {
     }
 
 
-   
+
     this.recetaForm.patchValue({
       id_medicamento: this.arrayIdMed,
     });
@@ -128,7 +128,7 @@ export class RecetaComponent implements OnInit {
   eliminarDetalle(index: number) {
     console.log("Elimiando", index)
     this.arrayMed.splice(index,1);
-    
+
     console.log("Elimiando", this.arrayMed)
 
 }
@@ -181,8 +181,8 @@ export class RecetaComponent implements OnInit {
         error: (error) => {
           console.error('Error al guardar Receta', error);
         },
-      });      
-    
+      });
+
     }else {
       console.log("Esto mando",this.recetaForm.value);
       this.recetasSrv.Editar(this.id,this.recetaForm.value).subscribe({

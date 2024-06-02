@@ -45,7 +45,7 @@
               <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700">{{cita.medico.nombre_medico}} {{cita.medico.apellido_medico}} </td>
               <td class="px-4 py-2 border-b border-gray-200 text-sm text-gray-700">
                 <button class="px-3 py-1 text-white bg-blue-500 rounded hover:bg-blue-700">Editar</button>
-                <button class="px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700 ml-2" (click)="">Eliminar</button>
+                <button class="px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700 ml-2" (click)="onEliminar($event)">Eliminar</button>
               </td>
             </tr>
           }
