@@ -8,7 +8,7 @@ import { CitasProgramadasComponent } from './components/citas-programadas/citas-
 
 import { Component } from '@angular/core';
 import { HistorialComponent } from './components/historial/historial.component';
-import { MedicoComponent } from './components/medico/medico.component';
+
 import { MenuAdministradorComponent } from './components/menu-principal/menu-administrador/menu-administrador.component';
 import { MenuSecretariaComponent } from './components/menu-principal/menu-secretaria/menu-secretaria.component';
 import { UsuarioComponent } from './components/nav-usuarios/viewusuarios/usuario.component';
@@ -20,7 +20,12 @@ import { PacienteActualizarComponent } from './components/paciente-actualizar/pa
 import { RecetaConsultaComponent } from './components/receta-consulta/receta-consulta.component';
 import { ModUserComponent } from './components/nav-usuarios/mod-user/mod-user.component';
 import { PacienteConsultarComponent } from './components/paciente-consultar/paciente-consultar.component';
+
 import { MedicamentosConsultarComponent } from './components/medicamentos-consultar/medicamentos-consultar.component';
+
+import { MedicoComponent } from './components/nav-medico/medico/medico.component';
+import { RegMedicoComponent } from './components/nav-medico/reg-medico/reg-medico.component';
+
 
 export const routes: Routes = [
   {
@@ -49,7 +54,7 @@ export const routes: Routes = [
     path: 'administrador',
     component: MenuAdministradorComponent,
     children: [
-
+      {path: 'regmedico', component: RegMedicoComponent},
       {path: 'updateuser', component: ModUserComponent},
       {path: 'usuarios', component: UsuarioComponent  },
       {path: 'reguser', component: UsuariosComponent},

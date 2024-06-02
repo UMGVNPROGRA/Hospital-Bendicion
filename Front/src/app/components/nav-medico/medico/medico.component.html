@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+<title>Registrar usuario</title>
+</head>
+<body class="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
+
+
+  <div class="container mx-auto p-4">
+    <ul class="flex border-b">
+      <li class="mr-1">
+        <a class="bg-white inline-block py-2 px-4 text-gray-400 font-semibold" href="#"
+        routerLink="administrador/medico" routerLinkActive="active" (click)="viewMedico()"
+        >Consultar</a>
+      </li>
+      <li class="mr-1">
+        <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold" href="#"
+        routerLink="administrador/regmedico" routerLinkActive="active" (click)="regMedico()"
+        >Registrar</a>
+      </li>
+      <li class="mr-1">
+        <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold" href="#" routerLink="administrador/updateuser" routerLinkActive="active" (click)="updateMedico()">Modificar</a>
+      </li>
+
+    </ul>
+    <div class="overflow-x-auto bg-white shadow-lg rounded-lg">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-indigo-500 text-white">
+            <tr>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">ID Medico</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Nombre</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Apellido</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Especialidad</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Teléfono</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Jornada</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Colegiado</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Dirección</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Fecha de Creación</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Centro Hospitalario</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Edad</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Observaciones</th>
+            </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+            <tr *ngFor="let med of medList; let i = index" class="hover:bg-gray-100">
+                <td class="px-6 py-4 whitespace-nowrap text-sm">{{ med.id_medico }}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm">{{ med.nombre_medico }}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm">{{ med.apellido_medico }}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm">{{ med.id_especialidad.nombre_especialidad}}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm">{{ med.telefono }}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm">{{ med.jornada }}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm">{{ med.colegiado }}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm">{{ med.direccion }}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm">{{ med.fechaCreacion }}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm">{{ med.centroHospitalario }}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm">{{ med.edad }}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm">{{ med.observaciones }}</td>
+
+            </tr>
+        </tbody>
+    </table>
+
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<section class="bg-white dark:bg-gray-900 pt-10">
+  <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
+    <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Registrar Médico</h2>
+
+    <ul class="flex border-b">
+      <li class="mr-1">
+        <a class="bg-white inline-block py-2 px-4 text-gray-400 font-semibold" href="#"
+           routerLink="administrador/medico" routerLinkActive="active" (click)="viewMedico()">Consultar</a>
+      </li>
+      <li class="mr-1">
+        <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold" href="#"
+           routerLink="administrador/regmedico" routerLinkActive="active" (click)="regMedico()">Registrar</a>
+      </li>
+      <li class="mr-1">
+        <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold" href="#"
+           routerLink="administrador/updateuser" routerLinkActive="active" (click)="updateMedico()">Modificar</a>
+      </li>
+    </ul>
+
+    <form [formGroup]="medicoForm" (submit)="onSubmitMedico()">
+      <div class="grid gap-6 mb-6 md:grid-cols-2">
+        <div>
+          <label for="nombre_medico" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
+          <input formControlName="nombre_medico" type="text" id="nombre_medico" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+        </div>
+        <div>
+          <label for="apellido_medico" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Apellido</label>
+          <input formControlName="apellido_medico" type="text" id="apellido_medico" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+        </div>
+        <div>
+          <label for="especialidad" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Especialidad</label>
+          <select formControlName="especialidad" id="especialidad" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+            <option *ngFor="let especialidad of especialidades" [ngValue]="especialidad.id_especialidad">{{ especialidad.nombre_especialidad }}</option>
+          </select>
+        </div>
+        <div>
+          <label for="telefono" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Teléfono</label>
+          <input formControlName="telefono" type="text" id="telefono" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+        </div>
+        <div>
+          <label for="direccion" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Dirección</label>
+          <input formControlName="direccion" type="text" id="direccion" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+        </div>
+        <div>
+          <label for="colegiado" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Colegiado</label>
+          <input formControlName="colegiado" type="text" id="colegiado" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+        </div>
+        <div>
+          <label for="edad" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Edad</label>
+          <input formControlName="edad" type="number" id="edad" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+        </div>
+        <div>
+          <label for="centro_hospitalario" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Centro Hospitalario</label>
+          <input formControlName="centro_hospitalario" type="text" id="centro_hospitalario" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+        </div>
+        <div>
+          <label for="cod_jefe_inmediato" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Código Jefe Inmediato</label>
+          <input formControlName="cod_jefe_inmediato" type="text" id="cod_jefe_inmediato" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+        </div>
+        <div>
+          <label for="jornada" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jornada</label>
+          <input formControlName="jornada" type="text" id="jornada" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+        </div>
+        <div>
+          <label for="observaciones" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Observaciones</label>
+          <textarea formControlName="observaciones" id="observaciones" rows="3" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
+        </div>
+      </div>
+      <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-purple-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-purple-400">
+        Guardar
+      </button>
+    </form>
+  </div>
+</section>
