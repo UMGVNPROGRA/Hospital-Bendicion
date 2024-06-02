@@ -8,7 +8,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { NewPacienteInterface } from 'app/interfaces/new-paciente-interface';
+import { UsuarioInterfaces } from 'app/interfaces/usuario-interfaces';
 import { PacienteService } from 'app/services/paciente.service';
+import { UsuarioService } from 'app/services/usuario.service';
 
 @Component({
   selector: 'app-paciente',
@@ -20,10 +22,14 @@ import { PacienteService } from 'app/services/paciente.service';
 export class PacienteComponent implements OnInit {
   private readonly _formBuilder = inject(FormBuilder);
   private _pacienteService = inject(PacienteService);
+  private usuariosService = inject(UsuarioService);
   @Input('id') id: number = 0;
+  usuarios: UsuarioInterfaces[] | undefined;
   pacienteForm!: FormGroup;
   ngOnInit(): void {
+    this.getUSuarios()
     if (this.id == 0) {
+
       this.pacienteForm = this._formBuilder.group({
         nit: new FormControl(''),
         dpi: new FormControl(''),
@@ -37,7 +43,7 @@ export class PacienteComponent implements OnInit {
       });
     } else {
       this._pacienteService.getPacienteById(this.id).subscribe((data) => {
-          this.pacienteForm = this._formBuilder.group({
+        this.pacienteForm = this._formBuilder.group({
           id_paciente: new FormControl(data.id_paciente, Validators.required),
           nit: new FormControl(data.nit),
           dpi: new FormControl(data.dpi),
@@ -58,7 +64,9 @@ export class PacienteComponent implements OnInit {
       });
     }
   }
-
+  getUSuarios() {
+    this.usuariosService.getUsers().subscribe((data) => (this.usuarios = data));
+  }
   onSubmitPaciente() {
     console.log('entre a paciente');
 
@@ -67,18 +75,21 @@ export class PacienteComponent implements OnInit {
     if (this.id != 0) {
       pacienteId = this.pacienteForm.value.id_paciente;
     }
-    if(this.pacienteForm.value.nit==='' && this.pacienteForm.value.dpi===''){
-        console.log("ingrese nit o dpi")
-        return
+    if (
+      this.pacienteForm.value.nit === '' &&
+      this.pacienteForm.value.dpi === ''
+    ) {
+      console.log('ingrese nit o dpi');
+      return;
     }
-    if(this.pacienteForm.value.nit==='' && this.pacienteForm.value.dpi){
-      this.pacienteForm.value.nit = "CF"
-  }
-  
-  if(this.pacienteForm.value.nit && this.pacienteForm.value.dpi===''){
-    this.pacienteForm.value.dpi = "SD"
-    return
-}
+    if (this.pacienteForm.value.nit === '' && this.pacienteForm.value.dpi) {
+      this.pacienteForm.value.nit = 'CF';
+    }
+
+    if (this.pacienteForm.value.nit && this.pacienteForm.value.dpi === '') {
+      this.pacienteForm.value.dpi = 'SD';
+      return;
+    }
     if (this.pacienteForm.valid) {
       let paciente: NewPacienteInterface;
       paciente = {
@@ -99,18 +110,17 @@ export class PacienteComponent implements OnInit {
           if (this.id == 0) {
             console.log('Paciente enviado exitosamente', response);
             // Manejar la respuesta exitosa
-          }else {
+          } else {
             console.log('Paciente Editar exitosamente', response);
           }
         },
         error: (error) => {
-          if(this.id == 0){
+          if (this.id == 0) {
             console.error('Error al enviar nuevo paciente', error);
             // Manejar el error
-          }else {
+          } else {
             console.error('Error al editar nuevo paciente', error);
           }
-          
         },
       });
     } else {
