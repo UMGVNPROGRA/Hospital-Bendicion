@@ -39,7 +39,7 @@ export class PacienteComponent implements OnInit {
         email: new FormControl('', Validators.required),
         genero: new FormControl('', Validators.required),
         estado: new FormControl('A'),
-        id_usuario: new FormControl(0, Validators.required),
+        id_usuario: new FormControl('', Validators.required),
       });
     } else {
       this._pacienteService.getPacienteById(this.id).subscribe((data) => {
