@@ -27,6 +27,19 @@ export class MenuAdministradorComponent implements OnInit {
     this.router.navigate(['/administrador/usuarios']);
 
   }
+
+  
+  consultaPaciente() {
+    this.router.navigate(['/administrador/consultaPaciente']);
+
+  }
+
+  
+  consultaReceta() {
+    this.router.navigate(['/administrador/consultaReceta']);
+
+  }
+
   modHistorial() {
     this.router.navigate(['/administrador/historial']);
 

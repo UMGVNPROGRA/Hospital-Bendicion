@@ -106,9 +106,10 @@ export class PacienteComponent implements OnInit {
       };
 
       this._pacienteService.postPaciente(paciente).subscribe({
-        next: (response) => {
+        next: response => {
+          console.log('Paciente enviado exitosamente', response.data);
           if (this.id == 0) {
-            console.log('Paciente enviado exitosamente', response);
+            
             // Manejar la respuesta exitosa
           } else {
             console.log('Paciente Editar exitosamente', response);

@@ -100,7 +100,12 @@ export class CitasComponent implements OnInit{
 
   getUSuarios() {
     this.usuariosService.getUsers().subscribe(data=>
-    this.usuarios = data)
+
+      this.usuarios = data
+    
+    )
+    console.log("USUARIO",this.usuarios);
+
   }
 
   getMedicos() {
@@ -114,5 +119,7 @@ export class CitasComponent implements OnInit{
     this.getPacientes()
     this.getUSuarios()
     this.getMedicos()
+    console.log("USUARIO", this.usuarios);
+
   }
 }

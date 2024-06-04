@@ -50,6 +50,14 @@
             Pacientes
           </a>
         </li>
+        
+        <li class="py-2">
+          <a href="#" class="flex items-center text-gray-200 hover:text-white"
+          routerLink="administrador/consultaPaciente" routerLinkActive="active" (click)="consultaPaciente()">
+            <i class='bx bxs-user mr-2'></i>
+            Pacientes Consulta
+          </a>
+        </li>
         <li class="py-2">
           <a href="#" class="flex items-center text-gray-200 hover:text-white"
           routerLink="administrador/citas" routerLinkActive="active" (click)="modCitas()">
@@ -85,6 +93,13 @@
           [routerLink]="['/administrador/recetas/',0]" routerLinkActive="active">
             <i class='bx bxs-prescription mr-2'></i>
             Receta Médica
+          </a>
+        </li>
+        <li class="py-2">
+          <a href="#" class="flex items-center text-gray-200 hover:text-white"
+          routerLink="administrador/consultaReceta" routerLinkActive="active" (click)="consultaReceta()">
+            <i class='bx bxs-user mr-2'></i>
+            Receta Consulta
           </a>
         </li>
         <li class="py-2">
